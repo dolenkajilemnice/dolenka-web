@@ -1,0 +1,70 @@
+﻿cislo: 8
+nazev: "Byt č. 8"
+stav: volny
+dispozice: "3+kk"
+podlazi: "2NP"
+vymera: 67.5
+zahrada:
+parkovani: 12
+cena: 3483769
+splatka: 17390
+akontace: 1394000
+poradi: 8
+popis: |
+  Byt č. 8 je největší jednotkou v projektu — prostorný 3+kk na druhém podlaží s dispozicí, která funguje pro rodinu i pro dva lidi, kteří potřebují pracovnu nebo pokoj pro hosty. Orientace do tiché části dvorního traktu zajišťuje klid a přirozené světlo po většinu dne.
+
+  Kuchyně je průchodně propojena s obývacím prostorem. Obě ložnice jsou oddělené, každá s dostatečným místem pro šatní skříň. Koupelna je navržena bez kompromisů — velkoformátová španělská dlažba, prostorná sprchová kabina a dostatečný prostor pro pračku a sušičku.
+
+  Provoz bytu je díky energetickému celku budovy — fotovoltaice, tepelnému čerpadlu a rekuperaci — výrazně levnější než u srovnatelných bytů.
+vyhody:
+  - text: "Největší 3+kk v projektu · 67,5 m²"
+  - text: "Podlahové topení ve všech místnostech"
+  - text: "Vlastní parkovací stání 12 m²"
+  - text: "Rekuperace · tepelné čerpadlo · FV"
+  - text: "Sklep a kolárna v domě"
+  - text: "Dřevěné podlahy · španělská dlažba"
+  - text: "Dýhované dveře · žádné radiátory"
+  - text: "Centrum Jilemnice 5 minut pěšky"
+mistnosti:
+  - nazev: "Obývací pokoj + kuchyň"
+    typ: "Hlavní obytný prostor"
+    vymera: 26.4
+  - nazev: "Ložnice 1"
+    typ: "Hlavní ložnice"
+    vymera: 14.2
+  - nazev: "Ložnice 2 / pracovna"
+    typ: "Druhý pokoj"
+    vymera: 11.8
+  - nazev: "Koupelna"
+    typ: "Sprcha + WC + prádelna"
+    vymera: 7.6
+  - nazev: "Předsíň / chodba"
+    typ: "Vstup, šatní prostor"
+    vymera: 5.2
+  - nazev: "Sklep"
+    typ: "Nebytový prostor"
+    vymera: 2.3
+fotky:
+  - soubor: "static/uploads/byty/byt-8-foto-04.webp"
+    popisek: "Byt č. 8 — vizualizace 1"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-8-foto-05.webp"
+    popisek: "Byt č. 8 — vizualizace 2"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-8-foto-06.webp"
+    popisek: "Byt č. 8 — vizualizace 3"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-8-foto-07.webp"
+    popisek: "Byt č. 8 — vizualizace 4"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-8-foto-01.webp"
+    popisek: "Byt č. 8 — foto 1"
+    skupina: "aktualni"
+  - soubor: "static/uploads/byty/byt-8-foto-02.webp"
+    popisek: "Byt č. 8 — foto 2"
+    skupina: "aktualni"
+  - soubor: "static/uploads/byty/byt-8-foto-03.webp"
+    popisek: "Byt č. 8 — foto 3"
+    skupina: "aktualni"
+pudorys: static/uploads/pudorysy/pudorys-byt-8.webp
+karta_pdf: static/uploads/kartyPDF/karta-byt-8.pdf

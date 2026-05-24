@@ -1,0 +1,41 @@
+﻿cislo: 7
+nazev: "Byt č. 7"
+stav: volny
+dispozice: "2+kk"
+podlazi: "2NP"
+vymera: 55.7
+zahrada:
+parkovani: 12
+cena: 2428764
+splatka: 14600
+akontace: 971506
+poradi: 7
+popis: |
+  Byt č. 7 je prostorný 2+kk ve druhém patře — jeden z větších dvoupokojových bytů v projektu.
+vyhody:
+  - text: "Největší 2+kk v projektu · 55,7 m²"
+  - text: "2. podlaží · výhled"
+  - text: "Podlahové topení · rekuperace · FV"
+  - text: "Vlastní parkovací stání"
+mistnosti: []
+fotky:
+  - soubor: "static/uploads/byty/byt-7-foto-03.webp"
+    popisek: "Byt č. 7 — vizualizace 1"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-7-foto-04.webp"
+    popisek: "Byt č. 7 — vizualizace 2"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-7-foto-05.webp"
+    popisek: "Byt č. 7 — vizualizace 3"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-7-foto-06.webp"
+    popisek: "Byt č. 7 — vizualizace 4"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-7-foto-01.webp"
+    popisek: "Byt č. 7 — foto 1"
+    skupina: "aktualni"
+  - soubor: "static/uploads/byty/byt-7-foto-02.webp"
+    popisek: "Byt č. 7 — foto 2"
+    skupina: "aktualni"
+pudorys: static/uploads/pudorysy/pudorys-byt-7.webp
+karta_pdf: static/uploads/kartyPDF/karta-byt-7.pdf

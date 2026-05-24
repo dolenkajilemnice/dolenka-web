@@ -1,0 +1,45 @@
+﻿cislo: 1
+nazev: "Byt č. 1"
+stav: volny
+dispozice: "2+kk"
+podlazi: "1NP"
+vymera: 49.9
+zahrada:
+parkovani: 12
+cena: 1904135
+splatka: 13190
+akontace: 761654
+poradi: 1
+popis: |
+  Byt č. 1 je dvoupokojový byt v přízemí s praktickou dispozicí 2+kk. Vhodný pro jednotlivce, páry nebo jako investiční nemovitost.
+vyhody:
+  - text: "Přízemí — ideální pro seniory nebo s kočárkem"
+  - text: "2+kk · 49,9 m² · efektivní dispozice"
+  - text: "Podlahové topení ve všech místnostech"
+  - text: "Vlastní parkovací stání 12 m²"
+  - text: "Rekuperace · tepelné čerpadlo · FV"
+mistnosti: []
+fotky:
+  - soubor: "static/uploads/byty/byt-1-foto-04.webp"
+    popisek: "Byt č. 1 — vizualizace 1"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-1-foto-05.webp"
+    popisek: "Byt č. 1 — vizualizace 2"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-1-foto-06.webp"
+    popisek: "Byt č. 1 — vizualizace 3"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-1-foto-07.webp"
+    popisek: "Byt č. 1 — vizualizace 4"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-1-foto-01.webp"
+    popisek: "Byt č. 1 — foto 1"
+    skupina: "aktualni"
+  - soubor: "static/uploads/byty/byt-1-foto-02.webp"
+    popisek: "Byt č. 1 — foto 2"
+    skupina: "aktualni"
+  - soubor: "static/uploads/byty/byt-1-foto-03.webp"
+    popisek: "Byt č. 1 — foto 3"
+    skupina: "aktualni"
+pudorys: static/uploads/pudorysy/pudorys-byt-1.webp
+karta_pdf: static/uploads/kartyPDF/karta-byt-1.pdf

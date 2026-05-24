@@ -1,0 +1,41 @@
+﻿cislo: 2
+nazev: "Byt č. 2"
+stav: volny
+dispozice: "1+kk"
+podlazi: "1NP"
+vymera: 48.9
+zahrada:
+parkovani: 12
+cena: 1518081
+splatka: 13630
+akontace: 607232
+poradi: 2
+popis: |
+  Byt č. 2 je kompaktní 1+kk v přízemí — ideální pro jednotlivce nebo jako investiční nemovitost s výbornou výnosností v Jilemnici.
+vyhody:
+  - text: "Nejdostupnější jednotka v projektu"
+  - text: "1+kk · 48,9 m² · přízemí"
+  - text: "Podlahové topení · rekuperace · FV"
+  - text: "Vlastní parkovací stání"
+mistnosti: []
+fotky:
+  - soubor: "static/uploads/byty/byt-2-foto-04.webp"
+    popisek: "Byt č. 2 — vizualizace 1"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-2-foto-05.webp"
+    popisek: "Byt č. 2 — vizualizace 2"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-2-foto-06.webp"
+    popisek: "Byt č. 2 — vizualizace 3"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-2-foto-01.webp"
+    popisek: "Byt č. 2 — foto 1"
+    skupina: "aktualni"
+  - soubor: "static/uploads/byty/byt-2-foto-02.webp"
+    popisek: "Byt č. 2 — foto 2"
+    skupina: "aktualni"
+  - soubor: "static/uploads/byty/byt-2-foto-03.webp"
+    popisek: "Byt č. 2 — foto 3"
+    skupina: "aktualni"
+pudorys: static/uploads/pudorysy/pudorys-byt-2.webp
+karta_pdf: static/uploads/kartyPDF/karta-byt-2.pdf

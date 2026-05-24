@@ -1,0 +1,41 @@
+﻿cislo: 6
+nazev: "Byt č. 6"
+stav: volny
+dispozice: "2+kk"
+podlazi: "2NP"
+vymera: 45.3
+zahrada:
+parkovani: 12
+cena: 2081187
+splatka: 13307
+akontace: 832475
+poradi: 6
+popis: |
+  Byt č. 6 je 2+kk ve druhém patře s výhledem do okolí. Kompaktní a efektivní dispozice.
+vyhody:
+  - text: "2+kk · 45,3 m² · 2. podlaží"
+  - text: "Výhled do okolí"
+  - text: "Podlahové topení · rekuperace · FV"
+  - text: "Vlastní parkovací stání"
+mistnosti: []
+fotky:
+  - soubor: "static/uploads/byty/byt-6-foto-04.webp"
+    popisek: "Byt č. 6 — vizualizace 1"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-6-foto-05.webp"
+    popisek: "Byt č. 6 — vizualizace 2"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-6-foto-06.webp"
+    popisek: "Byt č. 6 — vizualizace 3"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-6-foto-01.webp"
+    popisek: "Byt č. 6 — foto 1"
+    skupina: "aktualni"
+  - soubor: "static/uploads/byty/byt-6-foto-02.webp"
+    popisek: "Byt č. 6 — foto 2"
+    skupina: "aktualni"
+  - soubor: "static/uploads/byty/byt-6-foto-03.webp"
+    popisek: "Byt č. 6 — foto 3"
+    skupina: "aktualni"
+pudorys: static/uploads/pudorysy/pudorys-byt-6.webp
+karta_pdf: static/uploads/kartyPDF/karta-byt-6.pdf

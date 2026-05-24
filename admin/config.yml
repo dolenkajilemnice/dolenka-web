@@ -1,0 +1,109 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: static/uploads
+public_folder: /uploads
+
+locale: cs
+
+collections:
+
+  # ── BYTY ────────────────────────────────────────────────────────────────
+  - name: byty
+    label: Byty
+    label_singular: Byt
+    folder: content/byty
+    create: true
+    slug: "byt-{{cislo}}"
+    identifier_field: nazev
+    summary: "{{nazev}} — {{dispozice}}, {{vymera}} m² — {{stav}}"
+    fields:
+      - { label: Název, name: nazev, widget: string, hint: "Např. Byt č. 8" }
+      - { label: Číslo bytu, name: cislo, widget: number, value_type: int }
+      - label: Stav
+        name: stav
+        widget: select
+        options:
+          - { label: Volný, value: volny }
+          - { label: Rezervováno, value: rezervovano }
+          - { label: Prodáno, value: prodano }
+        default: volny
+      - label: Dispozice
+        name: dispozice
+        widget: select
+        options: ["1+kk", "2+kk", "3+kk", "4+kk"]
+      - label: Podlaží
+        name: podlazi
+        widget: select
+        options:
+          - { label: 1. nadzemní (1NP), value: "1NP" }
+          - { label: 2. nadzemní (2NP), value: "2NP" }
+          - { label: 3. nadzemní (3NP), value: "3NP" }
+      - { label: "Výměra (m²)", name: vymera, widget: number, value_type: float }
+      - { label: "Zahrada (m²)", name: zahrada, widget: number, value_type: float, required: false, hint: "Nechte prázdné pokud byt nemá zahradu" }
+      - { label: "Parkovací stání (m²)", name: parkovani, widget: number, value_type: float, default: 12 }
+      - { label: "Cena (Kč)", name: cena, widget: number, value_type: int }
+      - { label: "Měsíční splátka (Kč)", name: splatka, widget: number, value_type: int }
+      - { label: "Akontace (Kč)", name: akontace, widget: number, value_type: int, hint: "Přibližná výše akontace (cca 40 % z ceny)" }
+      - label: Popis bytu
+        name: popis
+        widget: markdown
+        hint: "Popis konkrétního bytu — orientace, výhody, charakter prostoru"
+      - label: Výhody bytu
+        name: vyhody
+        widget: list
+        label_singular: Výhoda
+        summary: "{{fields.text}}"
+        field: { label: Text výhody, name: text, widget: string }
+      - label: Místnosti
+        name: mistnosti
+        widget: list
+        label_singular: Místnost
+        summary: "{{fields.nazev}} — {{fields.vymera}} m²"
+        fields:
+          - { label: Název místnosti, name: nazev, widget: string }
+          - { label: Typ / popis, name: typ, widget: string }
+          - { label: "Výměra (m²)", name: vymera, widget: number, value_type: float }
+      - label: Fotografie
+        name: fotky
+        widget: list
+        label_singular: Fotografie
+        summary: "{{fields.popisek}}"
+        fields:
+          - { label: Fotografie, name: soubor, widget: image }
+          - { label: Popisek, name: popisek, widget: string }
+      - label: Půdorys
+        name: pudorys
+        widget: image
+        required: false
+        hint: "Obrázek půdorysu (PNG nebo JPG)"
+      - { label: "Pořadí v ceníku", name: poradi, widget: number, value_type: int, hint: "Čím nižší číslo, tím výše v tabulce" }
+
+  # ── NASTAVENÍ PROJEKTU ──────────────────────────────────────────────────
+  - name: nastaveni
+    label: Nastavení webu
+    files:
+      - label: Kontaktní údaje
+        name: kontakt
+        file: content/nastaveni/kontakt.json
+        fields:
+          - { label: Jméno kontaktní osoby, name: jmeno, widget: string }
+          - { label: Pozice / role, name: pozice, widget: string }
+          - { label: Telefon, name: telefon, widget: string }
+          - { label: Email, name: email, widget: string }
+          - { label: Adresa, name: adresa, widget: string }
+
+      - label: Texty na hlavní stránce
+        name: texty
+        file: content/nastaveni/texty.json
+        fields:
+          - { label: Hero — nadpis (řádek 1), name: hero_nadpis_1, widget: string }
+          - { label: Hero — nadpis (řádek 2), name: hero_nadpis_2, widget: string }
+          - { label: Hero — podnadpis, name: hero_sub, widget: text }
+          - label: Hero — pills (klíčové výhody)
+            name: hero_pills
+            widget: list
+            field: { label: Text, name: text, widget: string }
+          - { label: "Sekce Výhody — úvodní text", name: benefity_intro, widget: text }
+          - { label: "Sekce Lokalita — popis", name: lokalita_popis, widget: text }

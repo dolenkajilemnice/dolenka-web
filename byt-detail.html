@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bytové družstvo Dolenka Jilemnice">
+<title>Detail bytu · Dolenka Jilemnice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-dark: #292C33; --bg-light: #F7F7F5; --green: #25CC30;
+    --text-dark: #292C33; --text-light: #FFFFFF; --text-sec: #5A5E66;
+    --border: rgba(41,44,51,0.15);
+    --font: 'DM Sans', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); background: var(--bg-light); color: var(--text-dark); font-size: 16px; line-height: 1.7; font-weight: 300; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 0 5vw; height: 64px; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(41,44,51,0.08); }
+  .nav-logo { text-decoration: none; display: flex; align-items: center; }
+  .nav-back { display: flex; align-items: center; gap: 8px; text-decoration: none; color: #5A5E66; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-back:hover { color: #25CC30; }
+  .nav-back svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+  .nav-cta { background: #292C33; color: #FFFFFF; padding: 8px 20px; border-radius: 0; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, color 0.2s; }
+  .nav-cta:hover { background: #25CC30; color: #292C33; }
+
+  /* GALLERY */
+  .gallery-wrap { margin-top: 64px; background: #292C33; }
+  .gallery-hero { height: 520px; width: 100%; position: relative; overflow: hidden; cursor: pointer; }
+  .gallery-hero img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; display: block; }
+  .gallery-hero:hover img { transform: scale(1.02); }
+  .gallery-count { position: absolute; bottom: 16px; right: 16px; background: rgba(41,44,51,0.8); color: #FFFFFF; font-size: 12px; padding: 5px 12px; letter-spacing: 0.06em; }
+  .gallery-thumbs { display: flex; gap: 3px; height: 90px; overflow-x: auto; scrollbar-width: none; background: #292C33; padding: 3px 3px 0; }
+  .gallery-thumbs::-webkit-scrollbar { display: none; }
+  .gallery-thumb-item { flex-shrink: 0; height: 84px; aspect-ratio: 4/3; overflow: hidden; cursor: pointer; border: 2px solid transparent; box-sizing: border-box; transition: border-color 0.15s; }
+  .gallery-thumb-item.active { border-color: #25CC30; }
+  .gallery-thumb-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.2s; }
+  .gallery-thumb-item:hover img { opacity: 0.75; }
+  .img-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.2); font-family: var(--font); background: #33363D; }
+
+  /* CONTENT */
+  .content-wrap { max-width: 1200px; margin: 0 auto; padding: 3.5rem 5vw 6rem; display: grid; grid-template-columns: 1fr 360px; gap: 4rem; align-items: start; }
+
+  .byt-tag { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #25CC30; font-weight: 600; margin-bottom: 0.5rem; }
+  .byt-title { font-family: var(--font); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 600; line-height: 1.05; letter-spacing: -0.03em; color: #292C33; }
+  .byt-subtitle { font-size: 16px; color: #5A5E66; font-weight: 300; margin-top: 0.4rem; }
+  .byt-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .byt-status { display: inline-flex; align-items: center; gap: 7px; padding: 6px 14px; border-radius: 2px; font-size: 13px; font-weight: 500; white-space: nowrap; align-self: flex-start; margin-top: 4px; }
+  .status-volny { background: rgba(37,204,48,0.12); color: #1a8a1f; }
+  .status-volny::before { content: ''; display: block; width: 7px; height: 7px; border-radius: 50%; background: #1a8a1f; }
+  .status-rezervovano { background: rgba(180,130,20,0.12); color: #7a5500; }
+  .status-prodano { background: rgba(41,44,51,0.08); color: #5A5E66; }
+
+  /* SPECS */
+  .specs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(41,44,51,0.1); border: 1px solid rgba(41,44,51,0.1); margin-bottom: 3rem; }
+  .spec-item { background: #F7F7F5; padding: 1.25rem 1.1rem; display: flex; flex-direction: column; gap: 4px; }
+  .spec-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #25CC30; font-weight: 600; }
+  .spec-value { font-family: var(--font); font-size: 1.6rem; font-weight: 600; color: #292C33; line-height: 1.1; letter-spacing: -0.02em; }
+  .spec-unit { font-size: 13px; color: #5A5E66; font-weight: 300; }
+
+  /* TABS */
+  .tabs { display: flex; border-bottom: 1px solid rgba(41,44,51,0.15); margin-bottom: 2.5rem; }
+  .tab-btn { background: none; border: none; border-bottom: 2px solid transparent; padding: 10px 20px 10px 0; font-family: var(--font); font-size: 13px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: #5A5E66; cursor: pointer; margin-bottom: -1px; transition: color 0.2s, border-color 0.2s; }
+  .tab-btn.active { color: #292C33; border-bottom-color: #25CC30; }
+  .tab-panel { display: none; } .tab-panel.active { display: block; }
+
+  .popis-text p { font-size: 15px; color: #5A5E66; line-height: 1.85; font-weight: 300; margin-bottom: 1.2rem; }
+  .popis-text strong { color: #292C33; font-weight: 600; }
+
+  .vyhody-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.5rem; }
+  .vyhoda-item { display: flex; align-items: flex-start; gap: 10px; padding: 0.9rem 1rem; background: #FFFFFF; border: 1px solid rgba(41,44,51,0.12); border-radius: 0; }
+  .vyhoda-item svg { width: 15px; height: 15px; stroke: #25CC30; fill: none; stroke-width: 2; flex-shrink: 0; margin-top: 3px; }
+  .vyhoda-item span { font-size: 13px; color: #5A5E66; font-weight: 300; line-height: 1.5; }
+
+  .dispozice-wrap { background: #FFFFFF; border: 1px solid rgba(41,44,51,0.12); border-radius: 0; padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+  .mistnosti-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .mistnosti-table th { text-align: left; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #25CC30; font-weight: 600; padding: 0 0 10px; border-bottom: 1px solid rgba(41,44,51,0.12); }
+  .mistnosti-table td { padding: 12px 0; border-bottom: 1px solid rgba(41,44,51,0.08); color: #5A5E66; font-weight: 300; }
+  .mistnosti-table td:first-child { color: #292C33; font-weight: 500; }
+  .mistnosti-table td:last-child { text-align: right; font-family: var(--font); font-size: 16px; color: #292C33; font-weight: 600; letter-spacing: -0.01em; }
+  .total-row td { border-bottom: none; padding-top: 16px; font-weight: 600 !important; color: #292C33 !important; }
+  .floor-plan { background: #F7F7F5; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; color: #5A5E66; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; overflow: hidden; }
+  .floor-plan img { width: 100%; height: 100%; object-fit: contain; }
+
+  .standard-sections { display: flex; flex-direction: column; gap: 2rem; }
+  .standard-section h4 { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #25CC30; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(41,44,51,0.1); }
+  .standard-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .standard-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #5A5E66; font-weight: 300; line-height: 1.5; }
+  .standard-list li::before { content: ''; display: block; width: 5px; height: 5px; border-radius: 50%; background: #25CC30; flex-shrink: 0; margin-top: 8px; }
+
+  /* SIDEBAR */
+  .sidebar { position: sticky; top: 84px; }
+  .price-card { background: #FFFFFF; border: 1px solid rgba(41,44,51,0.15); border-radius: 0; padding: 1.75rem; margin-bottom: 1rem; }
+  .price-main { font-family: var(--font); font-size: 2.6rem; font-weight: 600; color: #292C33; line-height: 1; margin-bottom: 0.25rem; letter-spacing: -0.03em; }
+  .price-label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #25CC30; font-weight: 600; margin-bottom: 1.5rem; }
+  .price-divider { border: none; border-top: 1px solid rgba(41,44,51,0.1); margin: 1.25rem 0; }
+  .price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+  .price-row:last-of-type { margin-bottom: 0; }
+  .price-row-label { font-size: 13px; color: #5A5E66; font-weight: 300; }
+  .price-row-value { font-size: 14px; font-weight: 600; color: #292C33; letter-spacing: -0.01em; }
+  .price-row-value.monthly { font-family: var(--font); font-size: 1.3rem; color: #25CC30; font-weight: 600; letter-spacing: -0.02em; }
+  .btn-primary { display: block; width: 100%; background: #25CC30; color: #292C33; padding: 15px 24px; text-decoration: none; font-family: var(--font); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 0; text-align: center; transition: background 0.2s; border: none; cursor: pointer; margin-bottom: 0.75rem; }
+  .btn-primary:hover { background: #1fb829; }
+  .btn-secondary { display: block; width: 100%; background: transparent; color: #292C33; padding: 13px 24px; text-decoration: none; font-family: var(--font); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 0; text-align: center; border: 1px solid rgba(41,44,51,0.25); transition: border-color 0.2s, color 0.2s; cursor: pointer; }
+  .btn-secondary:hover { border-color: #25CC30; color: #25CC30; }
+  .agent-card { background: #FFFFFF; border: 1px solid rgba(41,44,51,0.12); border-radius: 0; padding: 1.25rem 1.5rem; display: flex; gap: 1rem; align-items: center; margin-top: 1rem; }
+  .agent-avatar { width: 46px; height: 46px; border-radius: 50%; background: #292C33; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; color: #FFFFFF; flex-shrink: 0; overflow: hidden; }
+  .agent-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .agent-info h4 { font-size: 14px; font-weight: 600; color: #292C33; margin-bottom: 1px; letter-spacing: -0.01em; }
+  .agent-info p { font-size: 12px; color: #5A5E66; font-weight: 300; line-height: 1.5; }
+  .agent-info a { color: #25CC30; text-decoration: none; font-size: 12px; }
+
+  /* FORM */
+  .form-section { background: #FFFFFF; padding: 80px 5vw; }
+  .form-inner { max-width: 640px; margin: 0 auto; }
+  .section-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #25CC30; margin-bottom: 1rem; font-weight: 600; }
+  .section-title { font-family: var(--font); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 600; letter-spacing: -0.03em; color: #292C33; margin-bottom: 1rem; }
+
+  /* SIMILAR */
+  .similar-section { background: #F7F7F5; padding: 80px 5vw; }
+  .similar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(41,44,51,0.1); border: 1px solid rgba(41,44,51,0.1); margin-top: 2.5rem; }
+  .similar-card { background: #F7F7F5; text-decoration: none; display: flex; flex-direction: column; transition: background 0.2s; }
+  .similar-card:hover { background: #FFFFFF; }
+  .similar-img { aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+  .similar-card:nth-child(1) .similar-img { background: #33363D; }
+  .similar-card:nth-child(2) .similar-img { background: #2E3138; }
+  .similar-card:nth-child(3) .similar-img { background: #292C33; }
+  .similar-body { padding: 1.25rem 1.25rem 1.5rem; }
+  .similar-name { font-family: var(--font); font-size: 1.3rem; font-weight: 600; color: #292C33; margin-bottom: 0.25rem; letter-spacing: -0.02em; }
+  .similar-meta { font-size: 13px; color: #5A5E66; font-weight: 300; margin-bottom: 0.75rem; }
+  .similar-price { font-family: var(--font); font-size: 1.15rem; font-weight: 600; color: #25CC30; letter-spacing: -0.02em; }
+
+  footer { background: #292C33; padding: 50px 5vw 36px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
+  .footer-logo { text-decoration: none; display: flex; align-items: center; }
+  .footer-info p { font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.9; }
+  .footer-info a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .footer-info a:hover { color: #25CC30; }
+
+  /* LIGHTBOX */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(41,44,51,0.96); z-index: 999; align-items: center; justify-content: center; }
+  .lightbox.open { display: flex; }
+  .lightbox-inner { max-width: 900px; width: 90%; position: relative; }
+  .lightbox-img { width: 100%; aspect-ratio: 4/3; overflow: hidden; }
+  .lightbox-img img { width: 100%; height: 100%; object-fit: cover; }
+  .lightbox-img .img-ph { background: #33363D; color: rgba(255,255,255,0.2); font-size: 13px; }
+  .lightbox-close { position: absolute; top: -40px; right: 0; background: none; border: none; color: rgba(255,255,255,0.5); font-size: 28px; cursor: pointer; font-family: var(--font); font-weight: 300; }
+  .lightbox-close:hover { color: #FFFFFF; }
+  .lightbox-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+  .lightbox-caption { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 300; }
+  .lightbox-counter { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 300; }
+  .lb-prev, .lb-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(41,44,51,0.7); border: none; color: #FFFFFF; font-size: 24px; width: 48px; height: 48px; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); transition: background 0.2s, color 0.2s; z-index: 10; }
+  .lb-prev { left: -64px; }
+  .lb-next { right: -64px; }
+  .lb-prev:hover, .lb-next:hover { background: #25CC30; color: #292C33; }
+
+  /* SKELETON */
+  .skeleton { background: linear-gradient(90deg, #e4e4e2 25%, #ededeb 50%, #e4e4e2 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 0; display: inline-block; }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+  @media (max-width: 900px) {
+    .gallery-hero { height: 280px; }
+    .content-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+    .sidebar { position: static; }
+    .specs-grid { grid-template-columns: repeat(2, 1fr); }
+    .similar-grid { grid-template-columns: 1fr; }
+    .vyhody-grid { grid-template-columns: 1fr; }
+    nav .nav-cta { display: none; }
+  }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index" class="nav-logo">
+    <img src="static/logo/Dolenka_logotype_Dark_Colored.svg" alt="Dolenka" style="height:34px">
+  </a>
+  <a href="index#cenik" class="nav-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Zpět na ceník
+  </a>
+  <a href="#poptavka" class="nav-cta" id="navCta">Mám zájem o tento byt</a>
+</nav>
+
+<!-- GALLERY -->
+<div class="gallery-wrap" id="galleryWrap">
+  <div class="gallery-hero" id="galHero">
+    <div class="img-ph">[Načítám…]</div>
+    <span class="gallery-count" id="galCount"></span>
+  </div>
+  <div class="gallery-thumbs" id="galThumbs"></div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+  <div>
+    <div class="byt-header fade-in">
+      <div>
+        <p class="byt-tag" id="bytTag">Načítám…</p>
+        <h1 class="byt-title" id="bytTitle"><span class="skeleton" style="width:180px;height:3rem">&nbsp;</span></h1>
+        <p class="byt-subtitle" id="bytSubtitle"></p>
+      </div>
+      <span class="byt-status" id="bytStatus"></span>
+    </div>
+
+    <div class="specs-grid fade-in" id="specsGrid">
+      <div class="spec-item"><span class="spec-label">Výměra</span><span class="spec-value skeleton" style="width:60px;height:1.6rem">&nbsp;</span><span class="spec-unit">&nbsp;</span></div>
+      <div class="spec-item"><span class="spec-label">Dispozice</span><span class="spec-value skeleton" style="width:60px;height:1.6rem">&nbsp;</span><span class="spec-unit">&nbsp;</span></div>
+      <div class="spec-item"><span class="spec-label">Podlaží</span><span class="spec-value skeleton" style="width:60px;height:1.6rem">&nbsp;</span><span class="spec-unit">&nbsp;</span></div>
+      <div class="spec-item"><span class="spec-label">Parkování</span><span class="spec-value skeleton" style="width:60px;height:1.6rem">&nbsp;</span><span class="spec-unit">&nbsp;</span></div>
+    </div>
+
+    <div class="tabs fade-in">
+      <button class="tab-btn active" onclick="switchTab('popis',this)">Popis</button>
+      <button class="tab-btn" onclick="switchTab('dispozice',this)">Dispozice</button>
+      <button class="tab-btn" onclick="switchTab('standard',this)">Standard</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-popis">
+      <div class="popis-text fade-in" id="popisText"><p>Načítám…</p></div>
+      <div style="margin-top:2rem" class="fade-in">
+        <p style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#25CC30;margin-bottom:1rem;font-weight:600">Výhody tohoto bytu</p>
+        <div class="vyhody-grid" id="vyhodyGrid"></div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-dispozice">
+      <div class="dispozice-wrap fade-in">
+        <div class="floor-plan" id="pudorysWrap"><span style="letter-spacing:0.08em;text-transform:uppercase;font-size:12px">[Půdorys — bude doplněn]</span></div>
+        <table class="mistnosti-table">
+          <thead><tr><th>Místnost</th><th>Typ</th><th style="text-align:right">Výměra</th></tr></thead>
+          <tbody id="mistnostiBody"></tbody>
+        </table>
+        <p style="font-size:13px;color:#5A5E66;font-weight:300;line-height:1.6">Přesný půdorys a karta bytu ke stažení po nezávazné poptávce.</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-standard">
+      <div class="standard-sections fade-in">
+        <div class="standard-section"><h4>Podlahy a obklady</h4><ul class="standard-list"><li>Dřevěné podlahy v obytných místnostech — masiv nebo vícevrstvé dřevo</li><li>Španělská velkoformátová dlažba v koupelně, WC a předsíni</li><li>Velkoformátové obklady v koupelně</li></ul></div>
+        <div class="standard-section"><h4>Dveře a okna</h4><ul class="standard-list"><li>Dýhované interiérové dveře</li><li>Plastová nebo dřevohliníková okna s trojsklem</li><li>Venkovní žaluzie nebo rolety</li></ul></div>
+        <div class="standard-section"><h4>Vytápění a technologie</h4><ul class="standard-list"><li>Podlahové topení ve všech místnostech</li><li>Centrální tepelné čerpadlo vzduch–voda</li><li>Rekuperace vzduchu</li><li>Fotovoltaická elektrárna — sdílená produkce</li></ul></div>
+        <div class="standard-section"><h4>Koupelna</h4><ul class="standard-list"><li>Walk-in sprchová kabina bez vaničky</li><li>Závěsná sanita, designové baterie</li><li>Příprava pro pračku</li></ul></div>
+        <div class="standard-section"><h4>Ostatní</h4><ul class="standard-list"><li>Vlastní sklep ve sklepních prostorách</li><li>Společná kolárna v přízemí</li><li>Parkovací stání venku součástí ceny</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="price-card fade-in">
+      <p class="price-label">Cena bytu</p>
+      <p class="price-main" id="sideCena"><span class="skeleton" style="width:220px;height:2.6rem">&nbsp;</span></p>
+      <hr class="price-divider">
+      <div class="price-row"><span class="price-row-label">Akontace (cca 40 %)</span><span class="price-row-value" id="sideAkontace">–</span></div>
+      <div class="price-row"><span class="price-row-label">Zbývající podíl</span><span class="price-row-value" id="sideZbytek">–</span></div>
+      <hr class="price-divider">
+      <div class="price-row"><span class="price-row-label">Měsíční splátka</span><span class="price-row-value monthly" id="sideSplatka">–</span></div>
+      <div class="price-row" style="margin-top:4px"><span class="price-row-label" style="font-size:12px;color:#25CC30;font-weight:500">bez hypotéky · bez banky</span></div>
+      <hr class="price-divider">
+      <a href="#poptavka" class="btn-primary" id="sideCtaBtn">Mám zájem o tento byt</a>
+      <button class="btn-secondary" onclick="switchTab('dispozice', document.querySelectorAll('.tab-btn')[1]); document.getElementById('tab-dispozice').scrollIntoView({behavior:'smooth'})">Zobrazit dispozici</button>
+      <a id="kartaPdfBtn" href="#" download class="btn-secondary" style="display:none;margin-top:0.5rem">Stáhnout kartu bytu (PDF)</a>
+      <p style="font-size:12px;color:#5A5E66;font-weight:300;line-height:1.6;margin-top:1rem;text-align:center">Ceny jsou orientační. Přesné podmínky upřesníme při osobním setkání.</p>
+    </div>
+    <div class="agent-card fade-in">
+      <div class="agent-avatar" id="agentInitials">FP</div>
+      <div class="agent-info">
+        <h4 id="agentJmeno">František Petrouš</h4>
+        <p id="agentInfo"></p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- FORM -->
+<section class="form-section" id="poptavka">
+  <div class="form-inner">
+    <div class="section-label">Nezávazná poptávka</div>
+    <h2 class="section-title" id="formTitle">Mám zájem o tento byt</h2>
+    <p style="font-size:15px;color:#5A5E66;font-weight:300;margin-bottom:2.5rem">Vyplňte formulář a do 24 hodin vás kontaktujeme — telefonicky nebo emailem.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Jméno *</label><input type="text" placeholder="Jan" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;transition:border-color 0.2s"></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Příjmení *</label><input type="text" placeholder="Novák" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;transition:border-color 0.2s"></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Email *</label><input type="email" placeholder="jan@email.cz" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;transition:border-color 0.2s"></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Telefon</label><input type="tel" placeholder="+420 777 000 000" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;transition:border-color 0.2s"></div>
+      <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Preferovaný způsob kontaktu</label><select style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;-webkit-appearance:none"><option>Telefon</option><option>Email</option><option>WhatsApp</option></select></div>
+      <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Zpráva</label><textarea rows="4" placeholder="Váš dotaz k bytu, financování nebo termínu prohlídky…" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;resize:vertical"></textarea></div>
+      <div style="grid-column:1/-1">
+        <button type="submit" class="btn-primary" id="submitBtn" style="font-family:var(--font)">Odeslat poptávku</button>
+        <p style="font-size:13px;color:#5A5E66;font-weight:300;margin-top:0.75rem;line-height:1.5" id="submitNote">Po odeslání vás kontaktujeme do 24 hodin v pracovní dny.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIMILAR -->
+<div class="similar-section">
+  <p class="section-label">Ostatní dostupné byty</p>
+  <h2 class="section-title">Podívejte se i na další jednotky</h2>
+  <div class="similar-grid" id="similarGrid">
+    <a href="#" class="similar-card"><div class="similar-img">[Foto]</div><div class="similar-body"><p class="byt-tag">–</p><p class="similar-name">–</p><p class="similar-meta">–</p></div></a>
+    <a href="#" class="similar-card"><div class="similar-img">[Foto]</div><div class="similar-body"><p class="byt-tag">–</p><p class="similar-name">–</p><p class="similar-meta">–</p></div></a>
+    <a href="#" class="similar-card"><div class="similar-img">[Foto]</div><div class="similar-body"><p class="byt-tag">–</p><p class="similar-name">–</p><p class="similar-meta">–</p></div></a>
+  </div>
+</div>
+
+<footer>
+  <a href="index" class="footer-logo">
+    <img src="static/logo/Dolenka_logotype_Light_Colored.svg" alt="Dolenka" style="height:28px">
+  </a>
+  <div class="footer-info" id="footerKontakt"><p></p></div>
+  <div class="footer-info"><p>Bytové družstvo Dolenka<br><a href="#">Zásady zpracování osobních údajů</a></p></div>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-inner" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <button class="lb-prev" onclick="lightboxNav(-1)">&#8592;</button>
+    <button class="lb-next" onclick="lightboxNav(1)">&#8594;</button>
+    <div class="lightbox-img" id="lightboxImg"><div class="img-ph" style="background:#33363D;width:100%;height:100%">[Foto]</div></div>
+    <div class="lightbox-footer">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+      <span class="lightbox-counter" id="lightboxCounter"></span>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+<script>
+const fmt = n => n ? Number(n).toLocaleString('cs-CZ') + ' Kč' : '–';
+const fmtM2 = n => n ? n + ' m²' : '–';
+const BYTY_FILES = ['byt-1','byt-2','byt-3','byt-4','byt-5','byt-6','byt-7','byt-8','byt-9','byt-10'];
+
+let currentByt = null;
+let allFotky = [];
+let currentLightbox = 0;
+let currentHeroIdx = 0;
+
+function getParam() {
+  return new URLSearchParams(window.location.search).get('cislo');
+}
+
+function statusHtml(stav) {
+  if (stav === 'prodano') return '<span class="byt-status status-prodano">Prodáno</span>';
+  if (stav === 'rezervovano') return '<span class="byt-status status-rezervovano">Rezervováno</span>';
+  return '<span class="byt-status status-volny">Volný</span>';
+}
+
+function renderByt(b, kontakt) {
+  currentByt = b;
+  document.title = `${b.nazev} — ${b.dispozice}, ${b.vymera} m² · Dolenka Jilemnice`;
+  document.querySelector('meta[name="description"]').content =
+    `${b.nazev} — ${b.dispozice}, ${b.vymera} m², ${b.podlazi}. ${b.dispozice}, podlahové topení, rekuperace, parkování. Dolenka Jilemnice.`;
+
+  document.getElementById('bytTag').textContent = `Dolenka Jilemnice · ${b.podlazi}`;
+  document.getElementById('bytTitle').textContent = b.nazev;
+  document.getElementById('bytSubtitle').textContent = `${b.dispozice} · ${b.vymera} m² · Podkrkonoší`;
+  document.getElementById('bytStatus').outerHTML = statusHtml(b.stav);
+
+  document.getElementById('specsGrid').innerHTML = `
+    <div class="spec-item"><span class="spec-label">Výměra</span><span class="spec-value">${b.vymera}</span><span class="spec-unit">m²</span></div>
+    <div class="spec-item"><span class="spec-label">Dispozice</span><span class="spec-value">${b.dispozice}</span><span class="spec-unit">${b.dispozice.includes('kk') ? 'kuchyňský kout' : 'samostatná kuchyň'}</span></div>
+    <div class="spec-item"><span class="spec-label">Podlaží</span><span class="spec-value">${b.podlazi}</span><span class="spec-unit">nadzemní podlaží</span></div>
+    <div class="spec-item"><span class="spec-label">${b.zahrada ? 'Zahrada' : 'Parkování'}</span><span class="spec-value">${b.zahrada ? b.zahrada : b.parkovani}</span><span class="spec-unit">m² · ${b.zahrada ? 'soukromá zahrada' : 'vlastní venkovní stání'}</span></div>`;
+
+  document.getElementById('sideCena').textContent = fmt(b.cena);
+  document.getElementById('sideAkontace').textContent = '~' + fmt(b.akontace);
+  document.getElementById('sideZbytek').textContent = '~' + fmt(b.cena - b.akontace);
+  document.getElementById('sideSplatka').textContent = fmt(b.splatka) + ' / měs.';
+
+  const ctaText = `Mám zájem o ${b.nazev}`;
+  document.getElementById('sideCtaBtn').textContent = ctaText;
+  document.getElementById('navCta').textContent = ctaText;
+  document.getElementById('formTitle').textContent = ctaText;
+  document.getElementById('submitBtn').textContent = `Odeslat poptávku na ${b.nazev}`;
+
+  if (b.popis) {
+    document.getElementById('popisText').innerHTML = b.popis
+      .split('\n\n').filter(Boolean)
+      .map(p => `<p>${p.trim()}</p>`).join('');
+  }
+
+  const vg = document.getElementById('vyhodyGrid');
+  vg.innerHTML = (b.vyhody || []).map(v => `
+    <div class="vyhoda-item">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>${v.text}</span>
+    </div>`).join('');
+
+  const mb = document.getElementById('mistnostiBody');
+  const total = (b.mistnosti || []).reduce((s, m) => s + (m.vymera || 0), 0);
+  mb.innerHTML = (b.mistnosti || []).map(m => `
+    <tr><td>${m.nazev}</td><td style="color:#5A5E66;font-weight:300;font-size:13px">${m.typ}</td><td>${m.vymera} m²</td></tr>`
+  ).join('') + `<tr class="total-row"><td>Celkem užitná plocha</td><td></td><td>${total.toFixed(1)} m²</td></tr>`;
+
+  if (b.pudorys) {
+    document.getElementById('pudorysWrap').innerHTML = `<img src="${b.pudorys}" alt="Půdorys ${b.nazev}">`;
+  }
+
+  allFotky = b.fotky || [];
+  renderGallery();
+
+  if (b.karta_pdf) {
+    const pdfBtn = document.getElementById('kartaPdfBtn');
+    pdfBtn.href = b.karta_pdf;
+    pdfBtn.style.display = 'block';
+  }
+
+  if (kontakt) {
+    const initials = kontakt.jmeno.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+    const agentAvatarEl = document.getElementById('agentInitials');
+    if (kontakt.foto) {
+      agentAvatarEl.innerHTML = `<img src="${kontakt.foto}" alt="${kontakt.jmeno}">`;
+    } else {
+      agentAvatarEl.textContent = initials;
+    }
+    document.getElementById('agentJmeno').textContent = kontakt.jmeno;
+    document.getElementById('agentInfo').innerHTML = `${kontakt.pozice}<br>
+      <a href="tel:${kontakt.telefon.replace(/\s/g,'')}">${kontakt.telefon}</a><br>
+      <a href="mailto:${kontakt.email}">${kontakt.email}</a>`;
+    document.getElementById('submitNote').textContent =
+      `Po odeslání vás ${kontakt.jmeno} kontaktuje do 24 hodin v pracovní dny.`;
+    document.getElementById('footerKontakt').innerHTML = `<p>
+      <a href="tel:${kontakt.telefon.replace(/\s/g,'')}">${kontakt.telefon}</a><br>
+      <a href="mailto:${kontakt.email}">${kontakt.email}</a><br>${kontakt.adresa}</p>`;
+  }
+}
+
+function renderSimilar(byty, currentCislo) {
+  const similar = byty
+    .filter(b => b.cislo != currentCislo && b.stav === 'volny')
+    .slice(0, 3);
+  const grid = document.getElementById('similarGrid');
+  if (!similar.length) { grid.parentElement.style.display = 'none'; return; }
+  grid.innerHTML = similar.map(b => {
+    const thumb = (b.fotky && b.fotky[0])
+      ? `<img src="${b.fotky[0].soubor}" alt="${b.fotky[0].popisek}" style="width:100%;height:100%;object-fit:cover">`
+      : `<span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.2)">[Foto]</span>`;
+    return `
+    <a href="byt-detail?cislo=${b.cislo}" class="similar-card">
+      <div class="similar-img">${thumb}</div>
+      <div class="similar-body">
+        <p class="byt-tag">${b.podlazi} · ${b.dispozice}</p>
+        <p class="similar-name">${b.nazev}</p>
+        <p class="similar-meta">${b.vymera} m² · parkování</p>
+        <p class="similar-price">${fmt(b.cena)}</p>
+      </div>
+    </a>`;
+  }).join('');
+}
+
+function setHero(idx) {
+  currentHeroIdx = idx;
+  const foto = allFotky[idx];
+  if (!foto) return;
+  const hero = document.getElementById('galHero');
+  if (hero) {
+    hero.querySelector('img') ? hero.querySelector('img').src = foto.soubor : (hero.innerHTML = `<img src="${foto.soubor}" alt="${foto.popisek}" style="width:100%;height:100%;object-fit:cover"><span class="gallery-count" id="galCount"></span>`);
+    const countEl = document.getElementById('galCount');
+    if (countEl) countEl.textContent = `${idx + 1} / ${allFotky.length}`;
+  }
+  document.querySelectorAll('.gallery-thumb-item').forEach((el, i) => el.classList.toggle('active', i === idx));
+}
+
+function renderGallery() {
+  const hero = document.getElementById('galHero');
+  const thumbs = document.getElementById('galThumbs');
+  if (!allFotky.length || !hero) return;
+  const first = allFotky[0];
+  hero.innerHTML = `<img src="${first.soubor}" alt="${first.popisek}" style="width:100%;height:100%;object-fit:cover"><span class="gallery-count" id="galCount">1 / ${allFotky.length}</span>`;
+  hero.onclick = () => openLightbox(currentHeroIdx);
+  currentHeroIdx = 0;
+  thumbs.innerHTML = allFotky.map((foto, i) =>
+    `<div class="gallery-thumb-item${i === 0 ? ' active' : ''}" onclick="openLightbox(${i})"><img src="${foto.soubor}" alt="${foto.popisek}" loading="lazy"></div>`
+  ).join('');
+}
+
+function openLightbox(idx) {
+  currentLightbox = idx;
+  setHero(idx);
+  const fotky = currentByt?.fotky || [];
+  const foto = fotky[idx];
+  if (foto) {
+    document.getElementById('lightboxImg').innerHTML = `<img src="${foto.soubor}" alt="${foto.popisek}" style="width:100%;height:100%;object-fit:cover">`;
+    document.getElementById('lightboxCaption').textContent = foto.popisek;
+    document.getElementById('lightboxCounter').textContent = `${idx + 1} / ${fotky.length}`;
+  } else {
+    document.getElementById('lightboxImg').innerHTML = `<div class="img-ph" style="background:#33363D;width:100%;height:100%">[Foto · ${currentByt?.nazev}]</div>`;
+    document.getElementById('lightboxCaption').textContent = `Foto · ${currentByt?.nazev} · Dolenka Jilemnice`;
+    document.getElementById('lightboxCounter').textContent = '';
+  }
+  document.getElementById('lightbox').classList.add('open');
+}
+
+function lightboxNav(dir) {
+  const fotky = currentByt?.fotky || [];
+  if (!fotky.length) return;
+  openLightbox((currentLightbox + dir + fotky.length) % fotky.length);
+}
+
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lightboxNav(-1);
+  if (e.key === 'ArrowRight') lightboxNav(1);
+});
+
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+(async () => {
+  const cislo = getParam();
+
+  if (!cislo) {
+    document.getElementById('bytTitle').textContent = 'Vyberte byt z ceníku';
+    document.getElementById('bytTag').innerHTML = '<a href="index#cenik" style="color:#25CC30">← Zpět na ceník</a>';
+    return;
+  }
+
+  const [bytRes, kontaktRes, allBytyRes] = await Promise.all([
+    fetch(`content/byty/byt-${cislo}.yaml`).then(r => r.ok ? r.text() : null).then(t => t ? jsyaml.load(t) : null),
+    fetch('content/nastaveni/kontakt.json').then(r => r.ok ? r.json() : null),
+    Promise.allSettled(BYTY_FILES.map(f =>
+      fetch(`content/byty/${f}.yaml`).then(r => r.ok ? r.text() : null).then(t => t ? jsyaml.load(t) : null)
+    )).then(res => res.filter(r => r.status === 'fulfilled' && r.value).map(r => r.value))
+  ]);
+
+  if (bytRes) {
+    renderByt(bytRes, kontaktRes);
+    renderSimilar(allBytyRes, cislo);
+  } else {
+    document.getElementById('bytTitle').textContent = 'Byt nebyl nalezen';
+    document.getElementById('bytTag').innerHTML = '<a href="index#cenik" style="color:#25CC30">← Zpět na ceník</a>';
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+})();
+</script>
+</body>
+</html>

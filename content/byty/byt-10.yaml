@@ -1,0 +1,44 @@
+﻿cislo: 10
+nazev: "Byt č. 10"
+stav: volny
+dispozice: "2+kk"
+podlazi: "3NP"
+vymera: 58.3
+zahrada:
+parkovani: 12
+cena: 1652601
+splatka: 17038
+akontace: 661040
+poradi: 10
+popis: |
+  Byt č. 10 je 2+kk ve třetím podlaží — s atraktivní cenou a zajímavým podkrovním charakterem.
+vyhody:
+  - text: "Nejlepší cena/m² v projektu"
+  - text: "2+kk · 58,3 m² · podkroví"
+  - text: "Podlahové topení · rekuperace · FV"
+  - text: "Vlastní parkovací stání"
+mistnosti: []
+fotky:
+  - soubor: "static/uploads/byty/byt-10-foto-04.webp"
+    popisek: "Byt č. 10 — vizualizace 1"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-10-foto-05.webp"
+    popisek: "Byt č. 10 — vizualizace 2"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-10-foto-06.webp"
+    popisek: "Byt č. 10 — vizualizace 3"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-10-foto-07.webp"
+    popisek: "Byt č. 10 — vizualizace 4"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-10-foto-01.webp"
+    popisek: "Byt č. 10 — foto 1"
+    skupina: "aktualni"
+  - soubor: "static/uploads/byty/byt-10-foto-02.webp"
+    popisek: "Byt č. 10 — foto 2"
+    skupina: "aktualni"
+  - soubor: "static/uploads/byty/byt-10-foto-03.webp"
+    popisek: "Byt č. 10 — foto 3"
+    skupina: "aktualni"
+pudorys: static/uploads/pudorysy/pudorys-byt-10.webp
+karta_pdf: static/uploads/kartyPDF/karta-byt-10.pdf

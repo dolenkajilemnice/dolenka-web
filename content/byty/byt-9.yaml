@@ -1,0 +1,45 @@
+﻿cislo: 9
+nazev: "Byt č. 9"
+stav: volny
+dispozice: "2+kk"
+podlazi: "3NP"
+vymera: 71.3
+zahrada:
+parkovani: 12
+cena: 2133808
+splatka: 19182
+akontace: 853523
+poradi: 9
+popis: |
+  Byt č. 9 je největší 2+kk v celém projektu — 71,3 m² ve třetím podlaží s podkrovním charakterem a výhledem na okolní krajinu.
+vyhody:
+  - text: "Největší 2+kk · 71,3 m²"
+  - text: "Podkrovní charakter · 3. podlaží"
+  - text: "Výhled na okolní krajinu"
+  - text: "Podlahové topení · rekuperace · FV"
+  - text: "Vlastní parkovací stání"
+mistnosti: []
+fotky:
+  - soubor: "static/uploads/byty/byt-9-foto-04.webp"
+    popisek: "Byt č. 9 — vizualizace 1"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-9-foto-05.webp"
+    popisek: "Byt č. 9 — vizualizace 2"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-9-foto-06.webp"
+    popisek: "Byt č. 9 — vizualizace 3"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-9-foto-07.webp"
+    popisek: "Byt č. 9 — vizualizace 4"
+    skupina: "vizualizace"
+  - soubor: "static/uploads/byty/byt-9-foto-01.webp"
+    popisek: "Byt č. 9 — foto 1"
+    skupina: "aktualni"
+  - soubor: "static/uploads/byty/byt-9-foto-02.webp"
+    popisek: "Byt č. 9 — foto 2"
+    skupina: "aktualni"
+  - soubor: "static/uploads/byty/byt-9-foto-03.webp"
+    popisek: "Byt č. 9 — foto 3"
+    skupina: "aktualni"
+pudorys: static/uploads/pudorysy/pudorys-byt-9.webp
+karta_pdf: static/uploads/kartyPDF/karta-byt-9.pdf

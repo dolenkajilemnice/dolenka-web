@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Družstevní byty v Jilemnici – moderní bydlení s podlahovým topením, rekuperací, fotovoltaikou a parkováním u každého bytu. Vstup od cca 40 % vlastních zdrojů.">
+<title>Dolenka Jilemnice – Stylové družstevní bydlení v Podkrkonoší</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-dark: #292C33; --bg-light: #F7F7F5; --green: #25CC30;
+    --text-dark: #292C33; --text-light: #FFFFFF; --text-sec: #5A5E66;
+    --border: rgba(41,44,51,0.15);
+    --font: 'DM Sans', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); background: var(--bg-light); color: var(--text-dark); font-size: 16px; line-height: 1.7; font-weight: 300; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 0 5vw; height: 68px; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(41,44,51,0.08); transition: box-shadow 0.3s; }
+  nav.scrolled { box-shadow: 0 2px 20px rgba(41,44,51,0.1); }
+  .nav-logo { text-decoration: none; display: flex; align-items: center; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: #5A5E66; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: #25CC30; }
+  .nav-cta { background: #292C33; color: #FFFFFF !important; padding: 8px 20px; border-radius: 0; }
+  .nav-cta:hover { background: #25CC30 !important; color: #292C33 !important; }
+  .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; }
+  .burger span { display: block; width: 24px; height: 1.5px; background: #292C33; }
+  .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: #FFFFFF; border-bottom: 1px solid rgba(41,44,51,0.08); z-index: 99; padding: 1.5rem 5vw 2rem; flex-direction: column; gap: 1.2rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { text-decoration: none; color: #292C33; font-size: 17px; padding-bottom: 1rem; border-bottom: 1px solid rgba(41,44,51,0.08); }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; align-items: flex-end; padding: 0 5vw 8vh; background: #292C33; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(170deg, rgba(41,44,51,0.05) 0%, rgba(41,44,51,0.65) 55%), url('static/uploads/exterior-noc.png') center center/cover no-repeat; }
+  .hero-deco { position: absolute; top: 40px; left: 5vw; color: rgba(255,255,255,0.07); pointer-events: none; z-index: 1; }
+  .hero-content { position: relative; z-index: 2; max-width: 820px; }
+  .hero-tag { display: inline-block; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 0; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: var(--font); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 600; line-height: 1.05; letter-spacing: -0.03em; color: #FFFFFF; margin-bottom: 1.5rem; }
+  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.7); font-weight: 300; max-width: 540px; margin-bottom: 2.5rem; }
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 2.5rem; }
+  .pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #FFFFFF; padding: 7px 16px; border-radius: 0; font-size: 13px; font-weight: 400; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  /* BUTTONS */
+  .btn-primary { display: inline-block; background: #25CC30; color: #292C33; padding: 14px 32px; text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 0; transition: background 0.2s; border: none; cursor: pointer; font-family: var(--font); }
+  .btn-primary:hover { background: #1fb829; }
+  .btn-outline { display: inline-block; border: 1px solid rgba(255,255,255,0.35); color: #FFFFFF; padding: 14px 32px; text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 0; transition: border-color 0.2s; }
+  .btn-outline:hover { border-color: #FFFFFF; }
+  .btn-dark { display: inline-block; background: #292C33; color: #FFFFFF; padding: 14px 32px; text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 0; transition: background 0.2s, color 0.2s; border: none; cursor: pointer; font-family: var(--font); }
+  .btn-dark:hover { background: #25CC30; color: #292C33; }
+
+  /* SECTIONS */
+  section { padding: 100px 5vw; }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #25CC30; margin-bottom: 1rem; }
+  .section-title { font-family: var(--font); font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; color: #292C33; margin-bottom: 1.2rem; }
+  .section-intro { font-size: 16px; color: #5A5E66; max-width: 560px; line-height: 1.8; font-weight: 300; }
+
+  /* BENEFITS */
+  .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px; margin-top: 3.5rem; background: rgba(41,44,51,0.1); border: 1px solid rgba(41,44,51,0.1); }
+  .benefit-card { background: #F7F7F5; padding: 2rem 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; transition: background 0.2s; }
+  .benefit-card:hover { background: #F2F2F0; }
+  .benefit-icon { width: 44px; height: 44px; background: #292C33; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .benefit-icon svg { width: 22px; height: 22px; stroke: #25CC30; fill: none; stroke-width: 1.5; }
+  .benefit-title { font-weight: 600; font-size: 15px; color: #292C33; letter-spacing: -0.01em; }
+  .benefit-desc { font-size: 14px; color: #5A5E66; line-height: 1.65; font-weight: 300; }
+
+  /* DRUZSTVO */
+  .druzstvo-wrap { background: #292C33; color: #FFFFFF; position: relative; overflow: hidden; }
+  .druzstvo-deco { position: absolute; bottom: 40px; right: 5vw; color: rgba(255,255,255,0.04); pointer-events: none; }
+  .druzstvo-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; position: relative; z-index: 1; }
+  .druzstvo-steps { margin-top: 2.5rem; display: flex; flex-direction: column; }
+  .druzstvo-step { display: flex; gap: 1.25rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .step-num { font-family: var(--font); font-size: 2rem; font-weight: 600; color: #25CC30; line-height: 1; min-width: 32px; padding-top: 2px; letter-spacing: -0.02em; }
+  .step-body h4 { font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
+  .step-body p { font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.65; }
+  .highlight-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); padding: 1.5rem; margin-top: 2rem; }
+  .highlight-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.7; font-weight: 300; }
+  .big-number { font-family: var(--font); font-size: 3.5rem; font-weight: 600; color: #25CC30; line-height: 1; display: block; margin-bottom: 0.4rem; letter-spacing: -0.03em; }
+
+  /* CTA BAND */
+  .cta-band { background: #25CC30; padding: 60px 5vw; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .cta-band h3 { font-family: var(--font); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; color: #292C33; max-width: 560px; line-height: 1.15; letter-spacing: -0.02em; }
+  .cta-band--dark { background: #292C33; }
+  .cta-band--dark h3 { color: #FFFFFF; }
+  .btn-cta-outline { display: inline-block; border: 2px solid #292C33; color: #292C33; padding: 13px 30px; text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 0; transition: background 0.2s, color 0.2s; }
+  .btn-cta-outline:hover { background: #292C33; color: #25CC30; }
+
+  /* CENIK */
+  .cenik-wrap { background: #F7F7F5; }
+  .cenik-table-wrap { margin-top: 3rem; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead th { text-align: left; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #25CC30; font-weight: 600; padding: 0 16px 12px; border-bottom: 1px solid rgba(41,44,51,0.15); }
+  tbody tr { border-bottom: 1px solid rgba(41,44,51,0.1); transition: background 0.15s; cursor: pointer; }
+  tbody tr:hover { background: rgba(41,44,51,0.04); }
+  tbody tr.prodano { opacity: 0.4; cursor: default; }
+  tbody td { padding: 16px; color: #5A5E66; font-weight: 300; }
+  tbody td:first-child { font-weight: 600; color: #292C33; white-space: nowrap; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 2px; font-size: 12px; }
+  .badge-prodano { background: rgba(41,44,51,0.08); color: #5A5E66; }
+  .badge-volny { background: rgba(37,204,48,0.12); color: #1a8a1f; }
+  .badge-rezervovano { background: rgba(180,130,20,0.12); color: #7a5500; }
+  .price-col { font-family: var(--font); font-size: 17px; font-weight: 600; color: #292C33 !important; letter-spacing: -0.01em; }
+  .detail-link { color: #292C33; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid #292C33; padding-bottom: 1px; text-decoration: none; transition: color 0.2s, border-color 0.2s; white-space: nowrap; }
+  .detail-link:hover { color: #25CC30; border-color: #25CC30; }
+
+  /* LOKALITA */
+  .lokalita-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .lokalita-points { margin-top: 2rem; display: flex; flex-direction: column; }
+  .lokalita-point { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(41,44,51,0.1); }
+  .lokalita-point .dot { width: 6px; height: 6px; border-radius: 50%; background: #25CC30; flex-shrink: 0; margin-top: 9px; }
+  .lokalita-point p { font-size: 15px; font-weight: 300; color: #5A5E66; }
+  .lokalita-point strong { color: #292C33; font-weight: 600; }
+  .lokalita-img { width: 100%; object-fit: cover; display: block; }
+  .lokalita-img-main { aspect-ratio: 4/3; }
+  .lokalita-img-wide { aspect-ratio: 16/7; }
+  .foto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 2.5rem; }
+  .foto-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: opacity 0.2s; }
+  .foto-grid img:hover { opacity: 0.88; }
+  @media (max-width: 768px) { .foto-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* KONTAKT */
+  .kontakt-person { display: flex; gap: 1.5rem; align-items: center; background: white; border: 1px solid rgba(41,44,51,0.15); padding: 1.75rem 2rem; margin-bottom: 2.5rem; max-width: 440px; }
+  .person-avatar { width: 80px; height: 80px; border-radius: 50%; background: #292C33; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; color: #25CC30; flex-shrink: 0; overflow: hidden; }
+  .person-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .person-info h4 { font-size: 16px; font-weight: 600; color: #292C33; margin-bottom: 3px; }
+  .person-info .person-pozice { font-size: 13px; color: #5A5E66; font-weight: 300; margin-bottom: 6px; }
+  .person-info a { font-size: 14px; font-weight: 500; color: #292C33; text-decoration: none; display: block; line-height: 1.6; transition: color 0.2s; }
+  .person-info a:hover { color: #25CC30; }
+  .kontakt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5A5E66; }
+  .form-group input, .form-group select, .form-group textarea { border: 1px solid rgba(41,44,51,0.25); background: white; padding: 12px 14px; border-radius: 0; font-family: var(--font); font-size: 15px; font-weight: 300; color: #292C33; outline: none; transition: border-color 0.2s; width: 100%; -webkit-appearance: none; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #25CC30; }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-note { font-size: 13px; color: #5A5E66; font-weight: 300; margin-top: 0.75rem; }
+
+  /* FOOTER */
+  footer { background: #292C33; padding: 60px 5vw 40px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem; }
+  .footer-info p { font-size: 14px; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.8; }
+  .footer-info a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .footer-info a:hover { color: #25CC30; }
+
+  /* SKELETON */
+  .skeleton { background: linear-gradient(90deg, #e4e4e2 25%, #ededeb 50%, #e4e4e2 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 0; }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+  tr.skeleton-row td { padding: 16px; }
+  tr.skeleton-row td div { height: 14px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; } .burger { display: flex; }
+    .druzstvo-inner { grid-template-columns: 1fr; }
+    .lokalita-grid { grid-template-columns: 1fr; }
+    .kontakt-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .cta-band { flex-direction: column; text-align: center; }
+    section { padding: 70px 5vw; }
+  }
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="static/logo/Dolenka_logotype_Dark_Colored.svg" alt="Dolenka" style="height:34px">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#benefity">Výhody</a></li>
+    <li><a href="#druzstvo">Financování</a></li>
+    <li><a href="#cenik">Ceník</a></li>
+    <li><a href="#lokalita">Lokalita</a></li>
+    <li><a href="#kontakt" class="nav-cta">Mám zájem</a></li>
+  </ul>
+  <button class="burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#benefity" onclick="closeMobile()">Výhody</a>
+  <a href="#druzstvo" onclick="closeMobile()">Financování</a>
+  <a href="#cenik" onclick="closeMobile()">Ceník</a>
+  <a href="#lokalita" onclick="closeMobile()">Lokalita</a>
+  <a href="#kontakt" onclick="closeMobile()">Mám zájem</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <!-- Tři domky — brand vizuální prvek -->
+  <div class="hero-deco">
+    <svg width="280" height="130" viewBox="0 0 280 130" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 95 L38 52 L76 95 Z"/>
+      <rect x="8" y="95" width="60" height="30"/>
+      <path d="M82 88 L128 38 L174 88 Z"/>
+      <rect x="92" y="88" width="72" height="37"/>
+      <path d="M180 98 L218 62 L256 98 Z"/>
+      <rect x="188" y="98" width="60" height="27"/>
+    </svg>
+  </div>
+  <div class="hero-content fade-in">
+    <span class="hero-tag">Jilemnice · Podkrkonoší · Nová výstavba</span>
+    <h1 id="heroNadpis">Chytrý domov,<br>poctivý základ</h1>
+    <p class="hero-sub" id="heroSub">Načítám…</p>
+    <div class="hero-pills" id="heroPills"></div>
+    <div class="hero-ctas">
+      <a href="#cenik" class="btn-primary">Prohlédnout byty</a>
+      <a href="#druzstvo" class="btn-outline">Jak funguje financování?</a>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITY -->
+<section id="benefity">
+  <div class="section-label fade-in">Proč Dolenka</div>
+  <h2 class="section-title fade-in">Bydlení, které dává smysl<br>dnes i za deset let</h2>
+  <p class="section-intro fade-in" id="benefityIntro"></p>
+  <div class="benefits-grid fade-in">
+    <div class="benefit-card">
+      <div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div class="benefit-title">Parkování u každého bytu</div>
+      <div class="benefit-desc">Každá jednotka má vlastní parkovací stání. Žádné kroužení po okolí.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg></div>
+      <div class="benefit-title">Fotovoltaika + rekuperace</div>
+      <div class="benefit-desc">Vlastní výroba energie, tepelné čerpadlo a řízené větrání snižují provozní náklady.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <div class="benefit-title">Podlahové topení všude</div>
+      <div class="benefit-desc">Žádné radiátory, studená chodidla ani nerovnoměrné teplo. Ve všech bytech.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+      <div class="benefit-title">Španělská dlažba a dýhované dveře</div>
+      <div class="benefit-desc">Velkoformátová dlažba, dřevěné podlahy a dýhované dveře — ne katalogový standard.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div class="benefit-title">Venkovní prostory u většiny bytů</div>
+      <div class="benefit-desc">Terasa, balkon nebo zahrada u vybraných jednotek.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="benefit-title">Kolárna, sklep, komora</div>
+      <div class="benefit-desc">Společná prostorná kolárna, byty 8, 9 a 10 mají sklep nebo komoru. Místo pro všechno.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie" style="padding:70px 5vw;background:#F7F7F5">
+  <div class="section-label fade-in">Projekt</div>
+  <h2 class="section-title fade-in">Podívejte se zblízka</h2>
+  <div class="foto-grid fade-in">
+    <img src="static/uploads/budova-noc.webp" alt="Exteriér budovy v noci" loading="lazy">
+    <img src="static/uploads/budova-zboku.webp" alt="Exteriér budovy — detail" loading="lazy">
+    <img src="static/uploads/centrum-namesti.webp" alt="Centrum Jilemnice, náměstí" loading="lazy">
+    <img src="static/uploads/parkovani.webp" alt="Parkovací stání u domu" loading="lazy">
+    <img src="static/uploads/tepelne-cerpadlo.webp" alt="Tepelné čerpadlo" loading="lazy">
+    <img src="static/uploads/fotovoltaika.webp" alt="Fotovoltaika na střeše" loading="lazy">
+  </div>
+</section>
+
+<div class="cta-band cta-band--dark fade-in">
+  <h3>Chcete vědět více o konkrétním bytě nebo financování?</h3>
+  <a href="#kontakt" class="btn-primary">Napište nám</a>
+</div>
+
+<!-- DRUZSTVO -->
+<section class="druzstvo-wrap" id="druzstvo">
+  <!-- Tři domky — brand vizuální prvek -->
+  <div class="druzstvo-deco">
+    <svg width="280" height="130" viewBox="0 0 280 130" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 95 L38 52 L76 95 Z"/>
+      <rect x="8" y="95" width="60" height="30"/>
+      <path d="M82 88 L128 38 L174 88 Z"/>
+      <rect x="92" y="88" width="72" height="37"/>
+      <path d="M180 98 L218 62 L256 98 Z"/>
+      <rect x="188" y="98" width="60" height="27"/>
+    </svg>
+  </div>
+  <div class="druzstvo-inner">
+    <div>
+      <div class="section-label">Financování</div>
+      <h2 class="section-title fade-in" style="color:#FFFFFF">Jak funguje<br>družstevní model?</h2>
+      <p class="section-intro fade-in" style="color:rgba(255,255,255,0.6);max-width:100%">Družstevní vlastnictví je prověřená forma bydlení — dostupnější než hypotéka, přitom s plným komfortem vlastního bytu.</p>
+      <div class="druzstvo-steps fade-in">
+        <div class="druzstvo-step"><span class="step-num">1</span><div class="step-body"><h4>Složíte akontaci (cca 40 % ceny)</h4><p>Akontaci složíte z vlastních zdrojů, nebo klidně celou z úvěru na družstevní bydlení od stavební spořitelny. Nevyřizujete hypotéku. Zbývající část platíte formou měsíční družstevní splátky — podobně jako nájem, ale splácíte svůj podíl.</p></div></div>
+        <div class="druzstvo-step"><span class="step-num">2</span><div class="step-body"><h4>Stáváte se členem bytového družstva</h4><p>Byt máte plně ve svém užívání. Všechna práva jako vlastník, bez nutnosti hypotečního úvěru.</p></div></div>
+        <div class="druzstvo-step"><span class="step-num">3</span><div class="step-body"><h4>Převod do osobního vlastnictví</h4><p>Po úplném splacení podílu (což lze po řádném doplacení, nebo i kdykoli dříve formou mimořádného doplacení anuity) lze byt převést do osobního vlastnictví — plný zápis v katastru.</p></div></div>
+      </div>
+    </div>
+    <div class="fade-in">
+      <div class="highlight-box" style="margin-top:5rem"><span class="big-number">40 %</span><p>Typická výše akontace. Zbytek hradíte měsíčně — bez hypotéky, bez závazku vůči bance.</p></div>
+      <div class="highlight-box" style="margin-top:1rem" id="druzstvoExample"><p>Načítám příklad…</p></div>
+      <div class="highlight-box" style="margin-top:1rem"><p>Máte otázky ke konkrétním číslům? Rádi vše vysvětlíme bez závazků.</p><a href="#kontakt" class="btn-primary" style="margin-top:1rem;display:inline-block">Zeptejte se nás</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CENIK -->
+<section class="cenik-wrap" id="cenik">
+  <div class="section-label fade-in">Nabídka bytů</div>
+  <h2 class="section-title fade-in">Vyberte si svůj byt</h2>
+  <p class="section-intro fade-in" id="cenikIntro">Načítám…</p>
+  <div class="cenik-table-wrap fade-in">
+    <table>
+      <thead>
+        <tr>
+          <th>Byt</th><th>Dispozice</th><th>Podlaží</th><th>Výměra</th><th>Zahrada</th><th>Parkování</th><th>Cena</th><th>Splátka / měs.</th><th>Stav</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="cenikTbody">
+        <tr class="skeleton-row"><td><div class="skeleton" style="width:60px;height:14px"></div></td><td><div class="skeleton" style="width:40px;height:14px"></div></td><td><div class="skeleton" style="width:30px;height:14px"></div></td><td><div class="skeleton" style="width:55px;height:14px"></div></td><td><div class="skeleton" style="width:30px;height:14px"></div></td><td><div class="skeleton" style="width:40px;height:14px"></div></td><td><div class="skeleton" style="width:110px;height:14px"></div></td><td><div class="skeleton" style="width:80px;height:14px"></div></td><td><div class="skeleton" style="width:60px;height:14px"></div></td><td></td></tr>
+        <tr class="skeleton-row"><td><div class="skeleton" style="width:60px;height:14px"></div></td><td><div class="skeleton" style="width:40px;height:14px"></div></td><td><div class="skeleton" style="width:30px;height:14px"></div></td><td><div class="skeleton" style="width:55px;height:14px"></div></td><td><div class="skeleton" style="width:30px;height:14px"></div></td><td><div class="skeleton" style="width:40px;height:14px"></div></td><td><div class="skeleton" style="width:110px;height:14px"></div></td><td><div class="skeleton" style="width:80px;height:14px"></div></td><td><div class="skeleton" style="width:60px;height:14px"></div></td><td></td></tr>
+        <tr class="skeleton-row"><td><div class="skeleton" style="width:60px;height:14px"></div></td><td><div class="skeleton" style="width:40px;height:14px"></div></td><td><div class="skeleton" style="width:30px;height:14px"></div></td><td><div class="skeleton" style="width:55px;height:14px"></div></td><td><div class="skeleton" style="width:30px;height:14px"></div></td><td><div class="skeleton" style="width:40px;height:14px"></div></td><td><div class="skeleton" style="width:110px;height:14px"></div></td><td><div class="skeleton" style="width:80px;height:14px"></div></td><td><div class="skeleton" style="width:60px;height:14px"></div></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="cta-band fade-in">
+  <h3>Zaujal vás konkrétní byt? Napište nám — do 24 hodin se ozveme.</h3>
+  <a href="#kontakt" class="btn-cta-outline">Nezávazně poptat</a>
+</div>
+
+<!-- LOKALITA -->
+<section id="lokalita">
+  <div class="lokalita-grid">
+    <div>
+      <div class="section-label fade-in">Lokalita</div>
+      <h2 class="section-title fade-in">Jilemnice — kolébka<br>českého lyžování</h2>
+      <p class="section-intro fade-in" id="lokalitaPopis"></p>
+      <div class="lokalita-points fade-in">
+        <div class="lokalita-point"><span class="dot"></span><p><strong>Kompletní občanská vybavenost</strong> — školy, obchody, lékaři, sport.</p></div>
+        <div class="lokalita-point"><span class="dot"></span><p><strong>Sjezdovky a běžky</strong> v dosahu do 15 minut. Harrachov, Rokytnice, Špindlerův Mlýn.</p></div>
+        <div class="lokalita-point"><span class="dot"></span><p><strong>Příroda přímo za dveřmi</strong> — Krkonoše, cyklotrasy, lesy.</p></div>
+        <div class="lokalita-point"><span class="dot"></span><p><strong>Investiční potenciál</strong> — Jilemnice si hodnotu drží. Poptávka roste.</p></div>
+      </div>
+    </div>
+    <div class="fade-in">
+      <img src="static/uploads/vyhled-mesto.webp" alt="Výhled na Jilemnici" class="lokalita-img lokalita-img-main" style="margin-bottom:8px" loading="lazy">
+      <img src="static/uploads/priroda-hory.webp" alt="Okolní příroda a hory" class="lokalita-img lokalita-img-wide" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section style="background:#F7F7F5" id="kontakt">
+  <div class="kontakt-grid">
+    <div>
+      <div class="section-label fade-in">Kontakt</div>
+      <h2 class="section-title fade-in">Napište nám —<br>rádi vše vysvětlíme</h2>
+      <p class="section-intro fade-in">Bez závazků, bez salesáckého tlaku. Odpovíme do 24 hodin v pracovní dny.</p>
+      <div class="kontakt-person fade-in" style="margin-top:2rem" id="kontaktPerson">
+        <div class="person-avatar" id="personInitials">FP</div>
+        <div class="person-info">
+          <h4 id="personJmeno">František Petrouš</h4>
+          <p class="person-pozice" id="personPozice">Projektový manažer</p>
+          <a href="#" id="personTel"></a>
+          <a href="#" id="personEmail"></a>
+        </div>
+      </div>
+      <div class="fade-in" style="margin-top:1.5rem">
+        <p style="font-size:14px;color:#5A5E66;line-height:1.8" id="adresaBlock"></p>
+      </div>
+    </div>
+    <div class="fade-in">
+      <div class="form-grid">
+        <div class="form-group"><label>Jméno *</label><input type="text" placeholder="Jan"></div>
+        <div class="form-group"><label>Příjmení *</label><input type="text" placeholder="Novák"></div>
+        <div class="form-group"><label>Email *</label><input type="email" placeholder="jan@email.cz"></div>
+        <div class="form-group"><label>Telefon</label><input type="tel" placeholder="+420 777 000 000"></div>
+        <div class="form-group full">
+          <label>Mám zájem o byt</label>
+          <select id="bytSelect">
+            <option value="">— vyberte (nepovinné) —</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Preferovaný způsob kontaktu</label>
+          <select><option>Telefon</option><option>Email</option><option>WhatsApp</option></select>
+        </div>
+        <div class="form-group full"><label>Zpráva</label><textarea placeholder="Váš dotaz k bytu, financování nebo termínu prohlídky…"></textarea></div>
+        <div class="form-group full">
+          <button type="submit" class="btn-dark" style="width:100%;padding:15px;font-size:14px;letter-spacing:0.08em;text-transform:uppercase">Odeslat poptávku</button>
+          <p class="form-note" id="formNote">Po odeslání vás kontaktujeme do 24 hodin.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="nav-logo">
+    <img src="static/logo/Dolenka_logotype_Light_Colored.svg" alt="Dolenka" style="height:28px">
+  </a>
+  <div class="footer-info" id="footerKontakt"><p></p></div>
+  <div class="footer-info"><p>Bytové družstvo Dolenka<br><a href="#">Zásady zpracování osobních údajů</a></p></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+<script>
+const BYTY_FILES = [
+  'byt-1','byt-2','byt-3','byt-4','byt-5',
+  'byt-6','byt-7','byt-8','byt-9','byt-10'
+];
+
+const fmt = n => n ? n.toLocaleString('cs-CZ') + ' Kč' : '–';
+const fmtM2 = n => n ? n + ' m²' : '–';
+
+function goToByt(cislo) {
+  window.location.href = 'byt-detail?cislo=' + cislo;
+}
+
+function badgeHtml(stav) {
+  if (stav === 'prodano') return '<span class="badge badge-prodano">Prodáno</span>';
+  if (stav === 'rezervovano') return '<span class="badge badge-rezervovano">Rezervováno</span>';
+  return '<span class="badge badge-volny">Volný</span>';
+}
+
+async function loadByty() {
+  const results = await Promise.allSettled(
+    BYTY_FILES.map(f =>
+      fetch(`content/byty/${f}.yaml`)
+        .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+        .then(text => jsyaml.load(text))
+    )
+  );
+
+  const byty = results
+    .filter(r => r.status === 'fulfilled')
+    .map(r => r.value)
+    .sort((a, b) => (a.poradi || a.cislo) - (b.poradi || b.cislo));
+
+  const tbody = document.getElementById('cenikTbody');
+  tbody.innerHTML = byty.map(b => {
+    const isProdano = b.stav === 'prodano' || b.stav === 'rezervovano';
+    const rowClass = isProdano ? 'prodano' : '';
+    const onClick = !isProdano ? `onclick="goToByt(${b.cislo})"` : '';
+    return `<tr class="${rowClass}" ${onClick}>
+      <td>${b.nazev}</td>
+      <td>${b.dispozice}</td>
+      <td>${b.podlazi}</td>
+      <td>${fmtM2(b.vymera)}</td>
+      <td>${fmtM2(b.zahrada)}</td>
+      <td>${fmtM2(b.parkovani)}</td>
+      <td class="price-col">${isProdano ? '–' : fmt(b.cena)}</td>
+      <td>${isProdano ? '–' : fmt(b.splatka)}</td>
+      <td>${badgeHtml(b.stav)}</td>
+      <td>${!isProdano ? `<a href="byt-detail?cislo=${b.cislo}" class="detail-link">Detail bytu</a>` : ''}</td>
+    </tr>`;
+  }).join('');
+
+  const volne = byty.filter(b => b.stav === 'volny').length;
+  document.querySelectorAll('.pill').forEach(p => {
+    if (p.textContent.includes('bytů k dispozici')) p.textContent = `${volne} bytů k dispozici`;
+  });
+
+  const prodano = byty.filter(b => b.stav === 'prodano').length;
+  document.getElementById('cenikIntro').textContent =
+    `${byty.length} bytů v projektu, z nichž ${prodano} ${prodano === 1 ? 'je' : 'jsou'} již ${prodano === 1 ? 'prodán' : 'prodány'}. Každá jednotka má parkovací stání.`;
+
+  const sel = document.getElementById('bytSelect');
+  byty.filter(b => b.stav === 'volny').forEach(b => {
+    const o = document.createElement('option');
+    o.value = b.cislo;
+    o.textContent = `${b.nazev} — ${b.dispozice}, ${b.vymera} m², ${b.podlazi}`;
+    sel.appendChild(o);
+  });
+  const last = document.createElement('option');
+  last.textContent = 'Zatím nevím, chci více informací';
+  sel.appendChild(last);
+
+  const priklad = byty.find(b => b.stav === 'volny');
+  if (priklad) {
+    document.getElementById('druzstvoExample').innerHTML = `
+      <p style="font-size:15px;color:#FFFFFF;font-weight:600;margin-bottom:0.6rem;letter-spacing:-0.01em">Příklad: ${priklad.nazev} — ${priklad.vymera} m²</p>
+      <p>Cena: <strong style="color:#25CC30">${fmt(priklad.cena)}</strong><br>
+      Akontace: <strong style="color:#25CC30">~${fmt(priklad.akontace)}</strong><br>
+      Měsíční splátka: <strong style="color:#25CC30">${fmt(priklad.splatka)}</strong></p>`;
+  }
+
+  return byty;
+}
+
+async function loadTexty() {
+  try {
+    const r = await fetch('content/nastaveni/texty.json');
+    const d = await r.json();
+    document.getElementById('heroNadpis').innerHTML = d.hero_nadpis_1 + '<br>' + d.hero_nadpis_2;
+    document.getElementById('heroSub').textContent = d.hero_sub;
+    document.getElementById('benefityIntro').textContent = d.benefity_intro;
+    document.getElementById('lokalitaPopis').textContent = d.lokalita_popis;
+    const pillsEl = document.getElementById('heroPills');
+    pillsEl.innerHTML = '';
+    (d.hero_pills || []).forEach(p => {
+      const span = document.createElement('span');
+      span.className = 'pill';
+      span.textContent = p.text;
+      pillsEl.appendChild(span);
+    });
+  } catch(e) { console.warn('texty.json nenalezen, používám výchozí hodnoty'); }
+}
+
+async function loadKontakt() {
+  try {
+    const r = await fetch('content/nastaveni/kontakt.json');
+    const d = await r.json();
+    const initials = d.jmeno.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+    const avatarEl = document.getElementById('personInitials');
+    if (d.foto) {
+      avatarEl.innerHTML = `<img src="${d.foto}" alt="${d.jmeno}" onerror="this.remove();this.parentElement.textContent='${initials}'">`;
+    } else {
+      avatarEl.textContent = initials;
+    }
+    document.getElementById('personJmeno').textContent = d.jmeno;
+    document.getElementById('personPozice').textContent = d.pozice;
+    const telEl = document.getElementById('personTel');
+    telEl.href = 'tel:' + d.telefon.replace(/\s/g,'');
+    telEl.textContent = d.telefon;
+    const emailEl = document.getElementById('personEmail');
+    emailEl.href = 'mailto:' + d.email;
+    emailEl.textContent = d.email;
+    document.getElementById('adresaBlock').innerHTML =
+      `<strong style="color:#292C33">${d.adresa}</strong><br>Bytové družstvo Dolenka`;
+    document.getElementById('footerKontakt').innerHTML =
+      `<p><a href="tel:${d.telefon.replace(/\s/g,'')}">${d.telefon}</a><br>
+      <a href="mailto:${d.email}">${d.email}</a><br>${d.adresa}</p>`;
+    document.getElementById('formNote').textContent =
+      `Po odeslání vás ${d.jmeno} kontaktuje do 24 hodin v pracovní dny.`;
+  } catch(e) { console.warn('kontakt.json nenalezen'); }
+}
+
+(async () => {
+  await Promise.all([loadTexty(), loadKontakt(), loadByty()]);
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelector('.hero .fade-in').classList.add('visible');
+})();
+
+document.getElementById('burgerBtn').addEventListener('click', () =>
+  document.getElementById('mobileMenu').classList.toggle('open'));
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+window.addEventListener('scroll', () =>
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40));
+</script>
+</body>
+</html>

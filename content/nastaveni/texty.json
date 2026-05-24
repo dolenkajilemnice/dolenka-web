@@ -1,0 +1,14 @@
+{
+  "hero_nadpis_1": "Chytrý domov,",
+  "hero_nadpis_2": "poctivý základ",
+  "hero_sub": "Družstevní byty 1+kk až 3+kk v Jilemnici. Vstup od cca 40\u00a0% vlastních zdrojů, parkování u\u00a0každého bytu, podlahové topení, rekuperace a\u00a0fotovoltaika.",
+  "hero_pills": [
+    { "text": "Akontace od cca 40 %" },
+    { "text": "Parkování ke každému bytu" },
+    { "text": "Podlahové topení" },
+    { "text": "Rekuperace + FV" },
+    { "text": "8 bytů k dispozici" }
+  ],
+  "benefity_intro": "Každý byt má vlastní charakter. Žádné uniformní developerské kopie — jen prostor, který si zvolíte podle sebe.",
+  "lokalita_popis": "Město s duší a zázemím. Centrum do 5 minut pěšky, hory za rohem, Praha za hodinu a půl."
+}
