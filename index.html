@@ -479,7 +479,7 @@ function badgeHtml(stav) {
 async function loadByty() {
   const results = await Promise.allSettled(
     BYTY_FILES.map(f =>
-      fetch(`content/byty/${f}.yaml`)
+      fetch(`content/byty/${f}.yaml?v=` + Date.now())
         .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
         .then(text => jsyaml.load(text))
     )
@@ -543,7 +543,7 @@ async function loadByty() {
 
 async function loadTexty() {
   try {
-    const r = await fetch('content/nastaveni/texty.json');
+    const r = await fetch('content/nastaveni/texty.json?v=' + Date.now());
     const d = await r.json();
     document.getElementById('heroNadpis').innerHTML = d.hero_nadpis_1 + '<br>' + d.hero_nadpis_2;
     document.getElementById('heroSub').textContent = d.hero_sub;
@@ -562,7 +562,7 @@ async function loadTexty() {
 
 async function loadKontakt() {
   try {
-    const r = await fetch('content/nastaveni/kontakt.json');
+    const r = await fetch('content/nastaveni/kontakt.json?v=' + Date.now());
     const d = await r.json();
     const initials = d.jmeno.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
     const avatarEl = document.getElementById('personInitials');
