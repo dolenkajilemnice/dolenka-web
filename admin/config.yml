@@ -15,7 +15,9 @@ collections:
     label_singular: Byt
     folder: content/byty
     create: true
-    slug: "byt-{{cislo}}"
+    extension: yaml
+    format: yaml
+    slug: "byt-{{fields.cislo}}"
     identifier_field: nazev
     summary: "{{nazev}} — {{dispozice}}, {{vymera}} m² — {{stav}}"
     fields:
