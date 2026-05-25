@@ -14,10 +14,10 @@ collections:
     label: Byty
     label_singular: Byt
     folder: content/byty
-    create: true
+    create: false
     extension: yaml
     format: yaml
-    slug: "byt-{{fields.cislo}}"
+    slug: "{{slug}}"
     identifier_field: nazev
     summary: "{{nazev}} — {{dispozice}}, {{vymera}} m² — {{stav}}"
     fields:
