@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Družstevní byty v Jilemnici – moderní bydlení s podlahovým topením, rekuperací, fotovoltaikou a parkováním u každého bytu. Vstup od cca 40 % vlastních zdrojů.">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <title>Dolenka Jilemnice – Stylové družstevní bydlení v Podkrkonoší</title>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -603,6 +604,17 @@ document.getElementById('burgerBtn').addEventListener('click', () =>
 function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
 window.addEventListener('scroll', () =>
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40));
+</script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
 </script>
 </body>
 </html>
