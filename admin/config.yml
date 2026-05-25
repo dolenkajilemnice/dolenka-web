@@ -17,8 +17,8 @@ collections:
     create: false
     extension: yaml
     format: yaml
-    slug: "{{slug}}"
-    identifier_field: nazev
+    slug: "byt-{{cislo}}"
+    identifier_field: cislo
     summary: "{{nazev}} — {{dispozice}}, {{vymera}} m² — {{stav}}"
     fields:
       - { label: Název, name: nazev, widget: string, hint: "Např. Byt č. 8" }
