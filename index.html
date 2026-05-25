@@ -5,6 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Družstevní byty v Jilemnici – moderní bydlení s podlahovým topením, rekuperací, fotovoltaikou a parkováním u každého bytu. Vstup od cca 40 % vlastních zdrojů.">
 <title>Dolenka Jilemnice – Stylové družstevní bydlení v Podkrkonoší</title>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NG5RP686');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HRRPTWHZG4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HRRPTWHZG4');
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1342541647718018');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1342541647718018&ev=PageView&noscript=1"/></noscript>
+<link rel="icon" type="image/svg+xml" href="static/favicon.svg">
+<link rel="icon" type="image/png" href="static/favicon.png" sizes="32x32">
+<link rel="apple-touch-icon" href="static/apple-touch-icon.png" sizes="180x180">
+<meta property="og:title" content="Dolenka — Bydlení v Jilemnici">
+<meta property="og:description" content="Družstevní byty 1+kk až 3+kk v Jilemnici. Vstup od cca 40 % vlastních zdrojů, parkování u každého bytu, podlahové topení, rekuperace.">
+<meta property="og:image" content="https://jilemnice-dolenka.cz/static/uploads/exterior-noc.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://jilemnice-dolenka.cz">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jilemnice-dolenka.cz/static/uploads/exterior-noc.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -168,6 +208,10 @@
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NG5RP686"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <nav id="navbar">
   <a href="#" class="nav-logo">
@@ -316,7 +360,7 @@
     <table>
       <thead>
         <tr>
-          <th>Byt</th><th>Dispozice</th><th>Podlaží</th><th>Výměra</th><th>Zahrada</th><th>Parkování</th><th>Cena</th><th>Splátka / měs.</th><th>Stav</th><th></th>
+          <th>Byt</th><th>Dispozice</th><th>Podlaží</th><th>Výměra</th><th>Zahrada</th><th>Parkování</th><th>Cena jednotky</th><th>Splátka / měs.</th><th>Stav</th><th></th>
         </tr>
       </thead>
       <tbody id="cenikTbody">
@@ -375,27 +419,29 @@
       </div>
     </div>
     <div class="fade-in">
-      <div class="form-grid">
-        <div class="form-group"><label>Jméno *</label><input type="text" placeholder="Jan"></div>
-        <div class="form-group"><label>Příjmení *</label><input type="text" placeholder="Novák"></div>
-        <div class="form-group"><label>Email *</label><input type="email" placeholder="jan@email.cz"></div>
-        <div class="form-group"><label>Telefon</label><input type="tel" placeholder="+420 777 000 000"></div>
+      <form name="poptavka-hlavni" method="POST" action="/dekuji.html" data-netlify="true" data-netlify-honeypot="bot-field" class="form-grid">
+        <input type="hidden" name="form-name" value="poptavka-hlavni">
+        <input type="hidden" name="bot-field" style="display:none">
+        <div class="form-group"><label>Jméno *</label><input type="text" name="jmeno" placeholder="Jan"></div>
+        <div class="form-group"><label>Příjmení *</label><input type="text" name="prijmeni" placeholder="Novák"></div>
+        <div class="form-group"><label>Email *</label><input type="email" name="email" placeholder="jan@email.cz"></div>
+        <div class="form-group"><label>Telefon</label><input type="tel" name="telefon" placeholder="+420 777 000 000"></div>
         <div class="form-group full">
           <label>Mám zájem o byt</label>
-          <select id="bytSelect">
+          <select name="byt" id="bytSelect">
             <option value="">— vyberte (nepovinné) —</option>
           </select>
         </div>
         <div class="form-group full">
           <label>Preferovaný způsob kontaktu</label>
-          <select><option>Telefon</option><option>Email</option><option>WhatsApp</option></select>
+          <select name="kontakt"><option>Telefon</option><option>Email</option><option>WhatsApp</option></select>
         </div>
-        <div class="form-group full"><label>Zpráva</label><textarea placeholder="Váš dotaz k bytu, financování nebo termínu prohlídky…"></textarea></div>
+        <div class="form-group full"><label>Zpráva</label><textarea name="zprava" placeholder="Váš dotaz k bytu, financování nebo termínu prohlídky…"></textarea></div>
         <div class="form-group full">
-          <button type="submit" class="btn-dark" style="width:100%;padding:15px;font-size:14px;letter-spacing:0.08em;text-transform:uppercase">Odeslat poptávku</button>
+          <button type="submit" class="btn-dark" style="width:100%;padding:15px;font-size:14px;letter-spacing:0.08em;text-transform:uppercase" onclick="gtag('event','generate_lead',{event_category:'kontakt'});fbq('track','Lead');">Odeslat poptávku</button>
           <p class="form-note" id="formNote">Po odeslání vás kontaktujeme do 24 hodin.</p>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </section>

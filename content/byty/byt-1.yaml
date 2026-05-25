@@ -1,4 +1,4 @@
-﻿cislo: 1
+cislo: 1
 nazev: "Byt č. 1"
 stav: volny
 dispozice: "2+kk"
@@ -6,19 +6,40 @@ podlazi: "1NP"
 vymera: 49.9
 zahrada:
 parkovani: 12
-cena: 1904135
+cena: 4480000
 splatka: 13190
-akontace: 761654
+akontace: 1904135
 poradi: 1
 popis: |
-  Byt č. 1 je dvoupokojový byt v přízemí s praktickou dispozicí 2+kk. Vhodný pro jednotlivce, páry nebo jako investiční nemovitost.
+  Do bytu 1 vstupujete vlastním vchodem přímo z parkoviště, okolo své soukromé terasy. V předsíni pohodlně odložíte kabát a hned navazuje samostatné WC i koupelna s vanou.
+
+  Hlavní obytný prostor nabízí kuchyňský kout, místo pro jídelní stůl i sedací soupravu u okna. Ložnice je připravená na manželské dvoulůžko a dostatek úložného prostoru doplňuje praktická šatna. K bytu náleží kromě vlastní terasy i parkovací stání.
 vyhody:
-  - text: "Přízemí — ideální pro seniory nebo s kočárkem"
-  - text: "2+kk · 49,9 m² · efektivní dispozice"
-  - text: "Podlahové topení ve všech místnostech"
+  - text: "Vlastní vchod přímo z parkoviště"
+  - text: "2+kk · 49,9 m² · přízemí"
+  - text: "Soukromá terasa 10 m²"
+  - text: "Koupelna s vanou · samostatné WC"
+  - text: "Podlahové topení · rekuperace · FV"
   - text: "Vlastní parkovací stání 12 m²"
-  - text: "Rekuperace · tepelné čerpadlo · FV"
-mistnosti: []
+mistnosti:
+  - nazev: "Obývací pokoj s kk"
+    typ: "Hlavní obytný prostor"
+    vymera: 19.4
+  - nazev: "Ložnice, šatna"
+    typ: "Ložnice s šatnou"
+    vymera: 12.4
+  - nazev: "Koupelna"
+    typ: "Koupelna s vanou"
+    vymera: 4.9
+  - nazev: "WC"
+    typ: "Samostatné WC"
+    vymera: 1.4
+  - nazev: "Předsíň a ostatní"
+    typ: "Vstupní prostory"
+    vymera: 6.8
+  - nazev: "Terasa"
+    typ: "Soukromá terasa"
+    vymera: 10.0
 fotky:
   - soubor: "static/uploads/byty/byt-1-foto-04.webp"
     popisek: "Byt č. 1 — vizualizace 1"

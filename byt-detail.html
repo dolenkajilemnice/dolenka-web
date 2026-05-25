@@ -5,6 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Bytové družstvo Dolenka Jilemnice">
 <title>Detail bytu · Dolenka Jilemnice</title>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NG5RP686');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HRRPTWHZG4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HRRPTWHZG4');
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1342541647718018');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1342541647718018&ev=PageView&noscript=1"/></noscript>
+<link rel="icon" type="image/svg+xml" href="static/favicon.svg">
+<link rel="icon" type="image/png" href="static/favicon.png" sizes="32x32">
+<link rel="apple-touch-icon" href="static/apple-touch-icon.png" sizes="180x180">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -170,11 +207,26 @@
     .vyhody-grid { grid-template-columns: 1fr; }
     nav .nav-cta { display: none; }
   }
+  @media (max-width: 768px) {
+    .lb-prev, .lb-next {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px;
+      background: rgba(41,44,51,0.85); border: none; color: #FFFFFF;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 1001; cursor: pointer; -webkit-tap-highlight-color: transparent;
+    }
+    .lb-prev { left: 8px; }
+    .lb-next { right: 8px; }
+  }
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NG5RP686"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <nav>
   <a href="index" class="nav-logo">
@@ -184,7 +236,7 @@
     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
     Zpět na ceník
   </a>
-  <a href="#poptavka" class="nav-cta" id="navCta">Mám zájem o tento byt</a>
+  <a href="#poptavka" class="nav-cta" id="navCta" onclick="gtag('event','view_item',{event_category:'byt',event_label:document.title});fbq('track','ViewContent');">Mám zájem o tento byt</a>
 </nav>
 
 <!-- GALLERY -->
@@ -254,10 +306,10 @@
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="price-card fade-in">
-      <p class="price-label">Cena bytu</p>
+      <p class="price-label">Cena jednotky</p>
       <p class="price-main" id="sideCena"><span class="skeleton" style="width:220px;height:2.6rem">&nbsp;</span></p>
       <hr class="price-divider">
-      <div class="price-row"><span class="price-row-label">Akontace (cca 40 %)</span><span class="price-row-value" id="sideAkontace">–</span></div>
+      <div class="price-row"><span class="price-row-label" id="sideAkontaceLabel">Akontace</span><span class="price-row-value" id="sideAkontace">–</span></div>
       <div class="price-row"><span class="price-row-label">Zbývající podíl</span><span class="price-row-value" id="sideZbytek">–</span></div>
       <hr class="price-divider">
       <div class="price-row"><span class="price-row-label">Měsíční splátka</span><span class="price-row-value monthly" id="sideSplatka">–</span></div>
@@ -265,7 +317,7 @@
       <hr class="price-divider">
       <a href="#poptavka" class="btn-primary" id="sideCtaBtn">Mám zájem o tento byt</a>
       <button class="btn-secondary" onclick="switchTab('dispozice', document.querySelectorAll('.tab-btn')[1]); document.getElementById('tab-dispozice').scrollIntoView({behavior:'smooth'})">Zobrazit dispozici</button>
-      <a id="kartaPdfBtn" href="#" download class="btn-secondary" style="display:none;margin-top:0.5rem">Stáhnout kartu bytu (PDF)</a>
+      <a id="kartaPdfBtn" href="#" download class="btn-secondary" style="display:none;margin-top:0.5rem" onclick="gtag('event','file_download',{event_category:'karta_bytu',event_label:document.title});fbq('track','ViewContent');">Stáhnout kartu bytu (PDF)</a>
       <p style="font-size:12px;color:#5A5E66;font-weight:300;line-height:1.6;margin-top:1rem;text-align:center">Ceny jsou orientační. Přesné podmínky upřesníme při osobním setkání.</p>
     </div>
     <div class="agent-card fade-in">
@@ -284,18 +336,21 @@
     <div class="section-label">Nezávazná poptávka</div>
     <h2 class="section-title" id="formTitle">Mám zájem o tento byt</h2>
     <p style="font-size:15px;color:#5A5E66;font-weight:300;margin-bottom:2.5rem">Vyplňte formulář a do 24 hodin vás kontaktujeme — telefonicky nebo emailem.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Jméno *</label><input type="text" placeholder="Jan" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;transition:border-color 0.2s"></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Příjmení *</label><input type="text" placeholder="Novák" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;transition:border-color 0.2s"></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Email *</label><input type="email" placeholder="jan@email.cz" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;transition:border-color 0.2s"></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Telefon</label><input type="tel" placeholder="+420 777 000 000" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;transition:border-color 0.2s"></div>
-      <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Preferovaný způsob kontaktu</label><select style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;-webkit-appearance:none"><option>Telefon</option><option>Email</option><option>WhatsApp</option></select></div>
-      <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Zpráva</label><textarea rows="4" placeholder="Váš dotaz k bytu, financování nebo termínu prohlídky…" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;resize:vertical"></textarea></div>
+    <form name="poptavka-byt" method="POST" action="/dekuji.html" data-netlify="true" data-netlify-honeypot="bot-field" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <input type="hidden" name="form-name" value="poptavka-byt">
+      <input type="hidden" name="bot-field" style="display:none">
+      <input type="hidden" name="byt" id="hiddenByt">
+      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Jméno *</label><input type="text" name="jmeno" placeholder="Jan" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;transition:border-color 0.2s"></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Příjmení *</label><input type="text" name="prijmeni" placeholder="Novák" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;transition:border-color 0.2s"></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Email *</label><input type="email" name="email" placeholder="jan@email.cz" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;transition:border-color 0.2s"></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Telefon</label><input type="tel" name="telefon" placeholder="+420 777 000 000" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;transition:border-color 0.2s"></div>
+      <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Preferovaný způsob kontaktu</label><select name="kontakt" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;-webkit-appearance:none"><option>Telefon</option><option>Email</option><option>WhatsApp</option></select></div>
+      <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px"><label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5E66;font-weight:600">Zpráva</label><textarea name="zprava" rows="4" placeholder="Váš dotaz k bytu, financování nebo termínu prohlídky…" style="border:1px solid rgba(41,44,51,0.25);background:#F7F7F5;padding:12px 14px;border-radius:0;font-family:var(--font);font-size:15px;font-weight:300;color:#292C33;outline:none;width:100%;resize:vertical"></textarea></div>
       <div style="grid-column:1/-1">
-        <button type="submit" class="btn-primary" id="submitBtn" style="font-family:var(--font)">Odeslat poptávku</button>
+        <button type="submit" class="btn-primary" id="submitBtn" style="font-family:var(--font)" onclick="gtag('event','generate_lead',{event_category:'kontakt'});fbq('track','Lead');">Odeslat poptávku</button>
         <p style="font-size:13px;color:#5A5E66;font-weight:300;margin-top:0.75rem;line-height:1.5" id="submitNote">Po odeslání vás kontaktujeme do 24 hodin v pracovní dny.</p>
       </div>
-    </div>
+    </form>
   </div>
 </section>
 
@@ -321,8 +376,12 @@
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <div class="lightbox-inner" onclick="event.stopPropagation()">
     <button class="lightbox-close" onclick="closeLightbox()">×</button>
-    <button class="lb-prev" onclick="lightboxNav(-1)">&#8592;</button>
-    <button class="lb-next" onclick="lightboxNav(1)">&#8594;</button>
+    <button class="lb-prev" onclick="lightboxNav(-1)">
+      <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="lb-next" onclick="lightboxNav(1)">
+      <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
     <div class="lightbox-img" id="lightboxImg"><div class="img-ph" style="background:#33363D;width:100%;height:100%">[Foto]</div></div>
     <div class="lightbox-footer">
       <p class="lightbox-caption" id="lightboxCaption"></p>
@@ -357,6 +416,15 @@ function renderByt(b, kontakt) {
   document.title = `${b.nazev} — ${b.dispozice}, ${b.vymera} m² · Dolenka Jilemnice`;
   document.querySelector('meta[name="description"]').content =
     `${b.nazev} — ${b.dispozice}, ${b.vymera} m², ${b.podlazi}. ${b.dispozice}, podlahové topení, rekuperace, parkování. Dolenka Jilemnice.`;
+  document.querySelector('meta[property="og:title"]').content =
+    `${b.nazev} — ${b.dispozice}, ${b.vymera} m² · Dolenka Jilemnice`;
+  document.querySelector('meta[property="og:description"]').content =
+    `Akontace ${fmt(b.akontace)}, měsíční splátka ${fmt(b.splatka)}. ${b.dispozice}, ${b.vymera} m², ${b.podlazi}.`;
+  const ogImg = b.fotky?.[0]?.soubor
+    ? 'https://jilemnice-dolenka.cz/' + b.fotky[0].soubor
+    : 'https://jilemnice-dolenka.cz/static/uploads/exterior-noc.png';
+  document.querySelector('meta[property="og:image"]').content = ogImg;
+  document.querySelector('meta[name="twitter:image"]').content = ogImg;
 
   document.getElementById('bytTag').textContent = `Dolenka Jilemnice · ${b.podlazi}`;
   document.getElementById('bytTitle').textContent = b.nazev;
@@ -370,6 +438,8 @@ function renderByt(b, kontakt) {
     <div class="spec-item"><span class="spec-label">${b.zahrada ? 'Zahrada' : 'Parkování'}</span><span class="spec-value">${b.zahrada ? b.zahrada : b.parkovani}</span><span class="spec-unit">m² · ${b.zahrada ? 'soukromá zahrada' : 'vlastní venkovní stání'}</span></div>`;
 
   document.getElementById('sideCena').textContent = fmt(b.cena);
+  const akontacePct = Math.round(b.akontace / b.cena * 100);
+  document.getElementById('sideAkontaceLabel').textContent = `Akontace (${akontacePct} %)`;
   document.getElementById('sideAkontace').textContent = '~' + fmt(b.akontace);
   document.getElementById('sideZbytek').textContent = '~' + fmt(b.cena - b.akontace);
   document.getElementById('sideSplatka').textContent = fmt(b.splatka) + ' / měs.';
@@ -511,6 +581,17 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') lightboxNav(1);
 });
 
+let touchStartX = 0;
+let touchEndX = 0;
+document.getElementById('lightbox').addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+document.getElementById('lightbox').addEventListener('touchend', e => {
+  touchEndX = e.changedTouches[0].screenX;
+  const diff = touchStartX - touchEndX;
+  if (Math.abs(diff) > 50) lightboxNav(diff > 0 ? 1 : -1);
+});
+
 function switchTab(id, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -538,6 +619,8 @@ function switchTab(id, btn) {
   if (bytRes) {
     renderByt(bytRes, kontaktRes);
     renderSimilar(allBytyRes, cislo);
+    const hiddenBytEl = document.getElementById('hiddenByt');
+    if (hiddenBytEl) hiddenBytEl.value = bytRes.nazev;
   } else {
     document.getElementById('bytTitle').textContent = 'Byt nebyl nalezen';
     document.getElementById('bytTag').innerHTML = '<a href="index#cenik" style="color:#25CC30">← Zpět na ceník</a>';

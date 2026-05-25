@@ -1,4 +1,4 @@
-﻿cislo: 4
+cislo: 4
 nazev: "Byt č. 4"
 stav: volny
 dispozice: "2+kk"
@@ -6,17 +6,43 @@ podlazi: "1NP"
 vymera: 50.9
 zahrada:
 parkovani: 12
-cena: 2160712
+cena: 4880000
 splatka: 13924
-akontace: 864285
+akontace: 2160712
 poradi: 4
 popis: |
-  Byt č. 4 je prostorný 2+kk v přízemí se světlou dispozicí.
+  Po vstupu do budovy Vás první dveře vpravo zavedou do bytu 4. V předsíni je dostatek místa na kabáty, botník i kočárek. Odtud vstupujete do prostorné obytné místnosti s kuchyňským koutem a francouzskými dveřmi na vlastní terasu.
+
+  Za kuchyňskou částí navazuje klidnější zóna bytu se samostatným WC, koupelnou se sprchovým koutem a ložnicí orientovanou na opačnou stranu domu. Terasa je prakticky umístěná hned vedle parkovacího stání, které k bytu náleží.
 vyhody:
   - text: "2+kk · 50,9 m² · přízemí"
+  - text: "Soukromá terasa 7 m² · francouzské dveře"
+  - text: "Místo pro kočárek v předsíni"
+  - text: "Koupelna se sprchou · samostatné WC"
   - text: "Podlahové topení · rekuperace · FV"
-  - text: "Vlastní parkovací stání"
-mistnosti: []
+  - text: "Vlastní parkovací stání 12 m²"
+mistnosti:
+  - nazev: "Obývací pokoj"
+    typ: "Obývací pokoj s kuchyňským koutem"
+    vymera: 22.4
+  - nazev: "Ložnice"
+    typ: "Ložnice"
+    vymera: 9.8
+  - nazev: "Koupelna"
+    typ: "Koupelna se sprchou"
+    vymera: 3.7
+  - nazev: "WC"
+    typ: "Samostatné WC"
+    vymera: 1.6
+  - nazev: "Chodba"
+    typ: "Chodba"
+    vymera: 2.3
+  - nazev: "Předsíň a ostatní"
+    typ: "Vstupní prostory"
+    vymera: 7.6
+  - nazev: "Terasa"
+    typ: "Soukromá terasa"
+    vymera: 7.0
 fotky:
   - soubor: "static/uploads/byty/byt-4-foto-04.webp"
     popisek: "Byt č. 4 — vizualizace 1"

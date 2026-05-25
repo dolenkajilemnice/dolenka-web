@@ -1,4 +1,4 @@
-﻿cislo: 8
+cislo: 8
 nazev: "Byt č. 8"
 stav: volny
 dispozice: "3+kk"
@@ -6,44 +6,49 @@ podlazi: "2NP"
 vymera: 67.5
 zahrada:
 parkovani: 12
-cena: 3483769
+cena: 6880000
 splatka: 17390
-akontace: 1394000
+akontace: 3483759
 poradi: 8
 popis: |
-  Byt č. 8 je největší jednotkou v projektu — prostorný 3+kk na druhém podlaží s dispozicí, která funguje pro rodinu i pro dva lidi, kteří potřebují pracovnu nebo pokoj pro hosty. Orientace do tiché části dvorního traktu zajišťuje klid a přirozené světlo po většinu dne.
+  Byt 8 je největší prodávaný byt v projektu a nabízí dispozici 3+kk s orientací na východ i západ. Z předsíně s místem pro šatní skříň a botník procházíte kolem samostatného WC a koupelny se sprchovým koutem do obývacího pokoje s kuchyňskou linkou.
 
-  Kuchyně je průchodně propojena s obývacím prostorem. Obě ložnice jsou oddělené, každá s dostatečným místem pro šatní skříň. Koupelna je navržena bez kompromisů — velkoformátová španělská dlažba, prostorná sprchová kabina a dostatečný prostor pro pračku a sušičku.
-
-  Provoz bytu je díky energetickému celku budovy — fotovoltaice, tepelnému čerpadlu a rekuperaci — výrazně levnější než u srovnatelných bytů.
+  Z obytné části vstupujete na balkón s výhledem před dům a západním sluncem. Ložnice má vlastní terasu orientovanou do klidnější části se zelení a další pokoj může sloužit jako dětský pokoj, pracovna nebo pokoj pro hosty. K bytu náleží také sklep v přízemí a parkovací stání.
 vyhody:
-  - text: "Největší 3+kk v projektu · 67,5 m²"
-  - text: "Podlahové topení ve všech místnostech"
+  - text: "Největší byt v projektu · 3+kk · 67,5 m²"
+  - text: "Balkón + terasa · orientace východ i západ"
+  - text: "Sklep 5 m² v přízemí"
+  - text: "Koupelna se sprchou · samostatné WC"
+  - text: "Podlahové topení · rekuperace · FV"
   - text: "Vlastní parkovací stání 12 m²"
-  - text: "Rekuperace · tepelné čerpadlo · FV"
-  - text: "Sklep a kolárna v domě"
-  - text: "Dřevěné podlahy · španělská dlažba"
-  - text: "Dýhované dveře · žádné radiátory"
-  - text: "Centrum Jilemnice 5 minut pěšky"
 mistnosti:
-  - nazev: "Obývací pokoj + kuchyň"
-    typ: "Hlavní obytný prostor"
-    vymera: 26.4
-  - nazev: "Ložnice 1"
-    typ: "Hlavní ložnice"
-    vymera: 14.2
-  - nazev: "Ložnice 2 / pracovna"
-    typ: "Druhý pokoj"
-    vymera: 11.8
+  - nazev: "Obývací pokoj"
+    typ: "Obývací pokoj s kuchyňskou linkou"
+    vymera: 22.0
+  - nazev: "Pokoj"
+    typ: "Ložnice"
+    vymera: 12.7
+  - nazev: "Pokoj"
+    typ: "Dětský pokoj / pracovna"
+    vymera: 10.1
   - nazev: "Koupelna"
-    typ: "Sprcha + WC + prádelna"
-    vymera: 7.6
-  - nazev: "Předsíň / chodba"
-    typ: "Vstup, šatní prostor"
-    vymera: 5.2
+    typ: "Koupelna se sprchou"
+    vymera: 4.4
+  - nazev: "WC"
+    typ: "Samostatné WC"
+    vymera: 1.9
+  - nazev: "Předsíň a ostatní"
+    typ: "Vstupní prostory"
+    vymera: 8.1
+  - nazev: "Balkón"
+    typ: "Balkón"
+    vymera: 3.6
+  - nazev: "Terasa"
+    typ: "Soukromá terasa"
+    vymera: 8.0
   - nazev: "Sklep"
     typ: "Nebytový prostor"
-    vymera: 2.3
+    vymera: 5.0
 fotky:
   - soubor: "static/uploads/byty/byt-8-foto-04.webp"
     popisek: "Byt č. 8 — vizualizace 1"

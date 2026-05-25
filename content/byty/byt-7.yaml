@@ -1,4 +1,4 @@
-﻿cislo: 7
+cislo: 7
 nazev: "Byt č. 7"
 stav: volny
 dispozice: "2+kk"
@@ -6,18 +6,40 @@ podlazi: "2NP"
 vymera: 55.7
 zahrada:
 parkovani: 12
-cena: 2428764
+cena: 5280000
 splatka: 14600
-akontace: 971506
+akontace: 2428764
 poradi: 7
 popis: |
-  Byt č. 7 je prostorný 2+kk ve druhém patře — jeden z větších dvoupokojových bytů v projektu.
+  Byt 7 se nachází v prostředním patře domu. Z předsíně procházíte kolem samostatného WC a koupelny se sprchovým koutem do obývacího pokoje s kuchyňským koutem a příjemným západním výhledem na město Jilemnice.
+
+  Prostorná ložnice nabízí místo i pro menší pracovní kout. Francouzské dveře Vás z ložnice zavedou na vlastní terasu obklopenou zelenou střechou, kde si užijete soukromí, výhled i klid nad okolním děním. K bytu náleží také parkovací stání.
 vyhody:
-  - text: "Největší 2+kk v projektu · 55,7 m²"
-  - text: "2. podlaží · výhled"
+  - text: "2+kk · 55,7 m² · 2. podlaží"
+  - text: "Střešní terasa 12 m² · soukromí a klid"
+  - text: "Výhled na město Jilemnice"
+  - text: "Prostorná ložnice s pracovním koutem"
   - text: "Podlahové topení · rekuperace · FV"
-  - text: "Vlastní parkovací stání"
-mistnosti: []
+  - text: "Vlastní parkovací stání 12 m²"
+mistnosti:
+  - nazev: "Obývací pokoj"
+    typ: "Obývací pokoj s kuchyňským koutem"
+    vymera: 17.8
+  - nazev: "Ložnice"
+    typ: "Ložnice s pracovním koutem"
+    vymera: 16.9
+  - nazev: "Koupelna"
+    typ: "Koupelna se sprchou"
+    vymera: 4.0
+  - nazev: "WC"
+    typ: "Samostatné WC"
+    vymera: 1.7
+  - nazev: "Předsíň a ostatní"
+    typ: "Vstupní prostory"
+    vymera: 9.3
+  - nazev: "Terasa"
+    typ: "Střešní terasa"
+    vymera: 12.0
 fotky:
   - soubor: "static/uploads/byty/byt-7-foto-03.webp"
     popisek: "Byt č. 7 — vizualizace 1"
