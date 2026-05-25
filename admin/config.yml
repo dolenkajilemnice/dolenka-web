@@ -104,6 +104,7 @@ collections:
           - label: Hero — pills (klíčové výhody)
             name: hero_pills
             widget: list
-            field: { label: Text, name: text, widget: string }
+            fields:
+              - { label: Text, name: text, widget: string }
           - { label: "Sekce Výhody — úvodní text", name: benefity_intro, widget: text }
           - { label: "Sekce Lokalita — popis", name: lokalita_popis, widget: text }
