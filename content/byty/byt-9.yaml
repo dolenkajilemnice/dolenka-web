@@ -1,69 +1,72 @@
+nazev: Byt č. 9
 cislo: 9
-nazev: "Byt č. 9"
-stav: volny
-dispozice: "2+kk"
-podlazi: "3NP"
+stav: rezervovano
+dispozice: 2+kk
+podlazi: 3NP
 vymera: 71.6
-zahrada:
+zahrada: null
 parkovani: 12
 cena: 5880000
 splatka: 19182
 akontace: 2133808
-poradi: 9
-popis: |
-  Byt 9 se nachází ve 3. NP a odmění Vás krásným výhledem na okolí. V předsíni je místo pro šatní skříň i věšáky na kabáty a dále procházíte kolem koupelny s vanou a samostatného WC do obývacího pokoje s kuchyňským koutem.
+popis: >
+  Byt 9 se nachází ve 3. NP a odmění Vás krásným výhledem na okolí. V předsíni
+  je místo pro šatní skříň i věšáky na kabáty a dále procházíte kolem koupelny s
+  vanou a samostatného WC do obývacího pokoje s kuchyňským koutem.
+
 
   Z obývací části vstupujete na vlastní terasu s výhledem do zahrady i na domy na kopci. Okna na opačné straně bytu směřují k parkovišti, stejně jako ložnice. Praktickým bonusem je komora v přízemí a k bytu náleží také parkovací stání.
 vyhody:
-  - text: "Největší 2+kk v projektu · 71,6 m²"
-  - text: "3. podlaží · výhled na okolní krajinu"
-  - text: "Terasa 12 m² s výhledem do zahrady"
-  - text: "Koupelna s vanou · samostatné WC"
-  - text: "Komora v přízemí · rekuperace · FV"
-  - text: "Vlastní parkovací stání 12 m²"
+  - text: Největší 2+kk v projektu · 71,6 m²
+  - text: 3. podlaží · výhled na okolní krajinu
+  - text: Terasa 12 m² s výhledem do zahrady
+  - text: Koupelna s vanou · samostatné WC
+  - text: Komora v přízemí · rekuperace · FV
+  - text: Vlastní parkovací stání 12 m²
 mistnosti:
-  - nazev: "Obývací pokoj"
-    typ: "Obývací pokoj s kuchyňským koutem"
+  - nazev: Obývací pokoj
+    typ: Obývací pokoj s kuchyňským koutem
     vymera: 32.6
-  - nazev: "Ložnice"
-    typ: "Ložnice"
+  - nazev: Ložnice
+    typ: Ložnice
     vymera: 12.8
-  - nazev: "Koupelna"
-    typ: "Koupelna s vanou"
+  - nazev: Koupelna
+    typ: Koupelna s vanou
     vymera: 4.8
-  - nazev: "WC"
-    typ: "Samostatné WC"
+  - nazev: WC
+    typ: Samostatné WC
     vymera: 1.7
-  - nazev: "Předsíň a ostatní"
-    typ: "Vstupní prostory"
+  - nazev: Předsíň a ostatní
+    typ: Vstupní prostory
     vymera: 13.4
-  - nazev: "Terasa"
-    typ: "Soukromá terasa"
-    vymera: 12.0
-  - nazev: "Komora"
-    typ: "Úložný prostor"
+  - nazev: Terasa
+    typ: Soukromá terasa
+    vymera: 12
+  - nazev: Komora
+    typ: Úložný prostor
     vymera: 0.5
 fotky:
-  - soubor: "static/uploads/byty/byt-9-foto-04.webp"
-    popisek: "Byt č. 9 — vizualizace 1"
-    skupina: "vizualizace"
-  - soubor: "static/uploads/byty/byt-9-foto-05.webp"
-    popisek: "Byt č. 9 — vizualizace 2"
-    skupina: "vizualizace"
-  - soubor: "static/uploads/byty/byt-9-foto-06.webp"
-    popisek: "Byt č. 9 — vizualizace 3"
-    skupina: "vizualizace"
-  - soubor: "static/uploads/byty/byt-9-foto-07.webp"
-    popisek: "Byt č. 9 — vizualizace 4"
-    skupina: "vizualizace"
-  - soubor: "static/uploads/byty/byt-9-foto-01.webp"
-    popisek: "Byt č. 9 — foto 1"
-    skupina: "aktualni"
-  - soubor: "static/uploads/byty/byt-9-foto-02.webp"
-    popisek: "Byt č. 9 — foto 2"
-    skupina: "aktualni"
-  - soubor: "static/uploads/byty/byt-9-foto-03.webp"
-    popisek: "Byt č. 9 — foto 3"
-    skupina: "aktualni"
+  - soubor: static/uploads/byty/byt-9-foto-04.webp
+    popisek: Byt č. 9 — vizualizace 1
+    skupina: vizualizace
+  - soubor: static/uploads/byty/byt-9-foto-05.webp
+    popisek: Byt č. 9 — vizualizace 2
+    skupina: vizualizace
+  - soubor: static/uploads/byty/byt-9-foto-06.webp
+    popisek: Byt č. 9 — vizualizace 3
+    skupina: vizualizace
+  - soubor: static/uploads/byty/byt-9-foto-07.webp
+    popisek: Byt č. 9 — vizualizace 4
+    skupina: vizualizace
+  - soubor: static/uploads/byty/byt-9-foto-01.webp
+    popisek: Byt č. 9 — foto 1
+    skupina: aktualni
+  - soubor: static/uploads/byty/byt-9-foto-02.webp
+    popisek: Byt č. 9 — foto 2
+    skupina: aktualni
+  - soubor: static/uploads/byty/byt-9-foto-03.webp
+    popisek: Byt č. 9 — foto 3
+    skupina: aktualni
 pudorys: static/uploads/pudorysy/pudorys-byt-9.webp
+poradi: 9
 karta_pdf: static/uploads/kartyPDF/karta-byt-9.pdf
