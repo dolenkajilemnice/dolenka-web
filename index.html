@@ -362,7 +362,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <table>
       <thead>
         <tr>
-          <th>Byt</th><th>Dispozice</th><th>Podlaží</th><th>Výměra</th><th>Zahrada</th><th>Parkování</th><th>Cena jednotky</th><th>Splátka / měs.</th><th>Stav</th><th></th>
+          <th>Byt</th><th>Dispozice</th><th>Podlaží</th><th>Výměra</th><th>Zahrada</th><th>Parkování</th><th>Akontace</th><th>Splátka / měs.</th><th>Stav</th><th></th>
         </tr>
       </thead>
       <tbody id="cenikTbody">
@@ -502,7 +502,7 @@ async function loadByty() {
       <td>${fmtM2(b.vymera)}</td>
       <td>${fmtM2(b.zahrada)}</td>
       <td>${fmtM2(b.parkovani)}</td>
-      <td class="price-col">${isProdano ? '–' : fmt(b.cena)}</td>
+      <td class="price-col">${isProdano ? '–' : fmt(b.akontace)}</td>
       <td>${isProdano ? '–' : fmt(b.splatka)}</td>
       <td>${badgeHtml(b.stav)}</td>
       <td>${!isProdano ? `<a href="byt-detail?cislo=${b.cislo}" class="detail-link">Detail bytu</a>` : ''}</td>
@@ -516,7 +516,7 @@ async function loadByty() {
 
   const prodano = byty.filter(b => b.stav === 'prodano').length;
   document.getElementById('cenikIntro').textContent =
-    `${byty.length} bytů v projektu, z nichž ${prodano} ${prodano === 1 ? 'je' : 'jsou'} již ${prodano === 1 ? 'prodán' : 'prodány'}. Každá jednotka má parkovací stání.`;
+    `${byty.length} bytů v projektu. Každá jednotka má parkovací stání.`;
 
   const sel = document.getElementById('bytSelect');
   byty.filter(b => b.stav === 'volny').forEach(b => {
