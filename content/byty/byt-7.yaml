@@ -1,63 +1,66 @@
+nazev: Byt č. 7
 cislo: 7
-nazev: "Byt č. 7"
-stav: volny
-dispozice: "2+kk"
-podlazi: "2NP"
+stav: rezervovano
+dispozice: 2+kk
+podlazi: 2NP
 vymera: 55.7
-zahrada:
+zahrada: null
 parkovani: 12
 cena: 5280000
 splatka: 14600
 akontace: 2428764
-poradi: 7
-popis: |
-  Byt 7 se nachází v prostředním patře domu. Z předsíně procházíte kolem samostatného WC a koupelny se sprchovým koutem do obývacího pokoje s kuchyňským koutem a příjemným západním výhledem na město Jilemnice.
+popis: >
+  Byt 7 se nachází v prostředním patře domu. Z předsíně procházíte kolem
+  samostatného WC a koupelny se sprchovým koutem do obývacího pokoje s
+  kuchyňským koutem a příjemným západním výhledem na město Jilemnice.
+
 
   Prostorná ložnice nabízí místo i pro menší pracovní kout. Francouzské dveře Vás z ložnice zavedou na vlastní terasu obklopenou zelenou střechou, kde si užijete soukromí, výhled i klid nad okolním děním. K bytu náleží také parkovací stání.
 vyhody:
-  - text: "2+kk · 55,7 m² · 2. podlaží"
-  - text: "Střešní terasa 12 m² · soukromí a klid"
-  - text: "Výhled na město Jilemnice"
-  - text: "Prostorná ložnice s pracovním koutem"
-  - text: "Podlahové topení · rekuperace · FV"
-  - text: "Vlastní parkovací stání 12 m²"
+  - text: 2+kk · 55,7 m² · 2. podlaží
+  - text: Střešní terasa 12 m² · soukromí a klid
+  - text: Výhled na město Jilemnice
+  - text: Prostorná ložnice s pracovním koutem
+  - text: Podlahové topení · rekuperace · FV
+  - text: Vlastní parkovací stání 12 m²
 mistnosti:
-  - nazev: "Obývací pokoj"
-    typ: "Obývací pokoj s kuchyňským koutem"
+  - nazev: Obývací pokoj
+    typ: Obývací pokoj s kuchyňským koutem
     vymera: 17.8
-  - nazev: "Ložnice"
-    typ: "Ložnice s pracovním koutem"
+  - nazev: Ložnice
+    typ: Ložnice s pracovním koutem
     vymera: 16.9
-  - nazev: "Koupelna"
-    typ: "Koupelna se sprchou"
-    vymera: 4.0
-  - nazev: "WC"
-    typ: "Samostatné WC"
+  - nazev: Koupelna
+    typ: Koupelna se sprchou
+    vymera: 4
+  - nazev: WC
+    typ: Samostatné WC
     vymera: 1.7
-  - nazev: "Předsíň a ostatní"
-    typ: "Vstupní prostory"
+  - nazev: Předsíň a ostatní
+    typ: Vstupní prostory
     vymera: 9.3
-  - nazev: "Terasa"
-    typ: "Střešní terasa"
-    vymera: 12.0
+  - nazev: Terasa
+    typ: Střešní terasa
+    vymera: 12
 fotky:
-  - soubor: "static/uploads/byty/byt-7-foto-03.webp"
-    popisek: "Byt č. 7 — vizualizace 1"
-    skupina: "vizualizace"
-  - soubor: "static/uploads/byty/byt-7-foto-04.webp"
-    popisek: "Byt č. 7 — vizualizace 2"
-    skupina: "vizualizace"
-  - soubor: "static/uploads/byty/byt-7-foto-05.webp"
-    popisek: "Byt č. 7 — vizualizace 3"
-    skupina: "vizualizace"
-  - soubor: "static/uploads/byty/byt-7-foto-06.webp"
-    popisek: "Byt č. 7 — vizualizace 4"
-    skupina: "vizualizace"
-  - soubor: "static/uploads/byty/byt-7-foto-01.webp"
-    popisek: "Byt č. 7 — foto 1"
-    skupina: "aktualni"
-  - soubor: "static/uploads/byty/byt-7-foto-02.webp"
-    popisek: "Byt č. 7 — foto 2"
-    skupina: "aktualni"
+  - soubor: static/uploads/byty/byt-7-foto-03.webp
+    popisek: Byt č. 7 — vizualizace 1
+    skupina: vizualizace
+  - soubor: static/uploads/byty/byt-7-foto-04.webp
+    popisek: Byt č. 7 — vizualizace 2
+    skupina: vizualizace
+  - soubor: static/uploads/byty/byt-7-foto-05.webp
+    popisek: Byt č. 7 — vizualizace 3
+    skupina: vizualizace
+  - soubor: static/uploads/byty/byt-7-foto-06.webp
+    popisek: Byt č. 7 — vizualizace 4
+    skupina: vizualizace
+  - soubor: static/uploads/byty/byt-7-foto-01.webp
+    popisek: Byt č. 7 — foto 1
+    skupina: aktualni
+  - soubor: static/uploads/byty/byt-7-foto-02.webp
+    popisek: Byt č. 7 — foto 2
+    skupina: aktualni
 pudorys: static/uploads/pudorysy/pudorys-byt-7.webp
+poradi: 7
 karta_pdf: static/uploads/kartyPDF/karta-byt-7.pdf
