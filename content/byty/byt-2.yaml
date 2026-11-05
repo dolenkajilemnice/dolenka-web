@@ -1,62 +1,65 @@
+nazev: Byt č. 2
 cislo: 2
-nazev: "Byt č. 2"
-stav: volny
-dispozice: "1+kk"
-podlazi: "1NP"
+stav: prodano
+dispozice: 1+kk
+podlazi: 1NP
 vymera: 48.9
-zahrada:
+zahrada: null
 parkovani: 12
 cena: 4180000
 splatka: 13630
 akontace: 1518081
-poradi: 2
-popis: |
-  Po vstupu do budovy Vás první dveře vlevo zavedou do bytu 2. V předsíni je prostor pro botník i šatní skříň a dále vstupujete do prostorné obytné místnosti s kuchyňským koutem.
+popis: >
+  Po vstupu do budovy Vás první dveře vlevo zavedou do bytu 2. V předsíni je
+  prostor pro botník i šatní skříň a dále vstupujete do prostorné obytné
+  místnosti s kuchyňským koutem.
+
 
   Francouzské dveře propojují hlavní místnost s vlastní terasou. V zadní části bytu najdete další úložný prostor, samostatné WC a koupelnu s možností pohodlného sprchování i relaxace ve vířivce. K bytu náleží také parkovací stání.
 vyhody:
-  - text: "1+kk · 48,9 m² · přízemí"
-  - text: "Soukromá terasa 5 m² · francouzské dveře"
-  - text: "Koupelna s vířivkou · samostatné WC"
-  - text: "Podlahové topení · rekuperace · FV"
-  - text: "Vlastní parkovací stání 12 m²"
+  - text: 1+kk · 48,9 m² · přízemí
+  - text: Soukromá terasa 5 m² · francouzské dveře
+  - text: Koupelna s vířivkou · samostatné WC
+  - text: Podlahové topení · rekuperace · FV
+  - text: Vlastní parkovací stání 12 m²
 mistnosti:
-  - nazev: "Obývací pokoj s kk"
-    typ: "Hlavní obytný prostor"
+  - nazev: Obývací pokoj s kk
+    typ: Hlavní obytný prostor
     vymera: 26.3
-  - nazev: "Chodba"
-    typ: "Chodba"
+  - nazev: Chodba
+    typ: Chodba
     vymera: 6.6
-  - nazev: "Koupelna"
-    typ: "Koupelna s vířivkou"
+  - nazev: Koupelna
+    typ: Koupelna s vířivkou
     vymera: 5.5
-  - nazev: "WC"
-    typ: "Samostatné WC"
+  - nazev: WC
+    typ: Samostatné WC
     vymera: 2.4
-  - nazev: "Předsíň a ostatní"
-    typ: "Vstupní prostory"
+  - nazev: Předsíň a ostatní
+    typ: Vstupní prostory
     vymera: 5.6
-  - nazev: "Terasa"
-    typ: "Soukromá terasa"
-    vymera: 5.0
+  - nazev: Terasa
+    typ: Soukromá terasa
+    vymera: 5
 fotky:
-  - soubor: "static/uploads/byty/byt-2-foto-04.webp"
-    popisek: "Byt č. 2 — vizualizace 1"
-    skupina: "vizualizace"
-  - soubor: "static/uploads/byty/byt-2-foto-05.webp"
-    popisek: "Byt č. 2 — vizualizace 2"
-    skupina: "vizualizace"
-  - soubor: "static/uploads/byty/byt-2-foto-06.webp"
-    popisek: "Byt č. 2 — vizualizace 3"
-    skupina: "vizualizace"
-  - soubor: "static/uploads/byty/byt-2-foto-01.webp"
-    popisek: "Byt č. 2 — foto 1"
-    skupina: "aktualni"
-  - soubor: "static/uploads/byty/byt-2-foto-02.webp"
-    popisek: "Byt č. 2 — foto 2"
-    skupina: "aktualni"
-  - soubor: "static/uploads/byty/byt-2-foto-03.webp"
-    popisek: "Byt č. 2 — foto 3"
-    skupina: "aktualni"
+  - soubor: static/uploads/byty/byt-2-foto-04.webp
+    popisek: Byt č. 2 — vizualizace 1
+    skupina: vizualizace
+  - soubor: static/uploads/byty/byt-2-foto-05.webp
+    popisek: Byt č. 2 — vizualizace 2
+    skupina: vizualizace
+  - soubor: static/uploads/byty/byt-2-foto-06.webp
+    popisek: Byt č. 2 — vizualizace 3
+    skupina: vizualizace
+  - soubor: static/uploads/byty/byt-2-foto-01.webp
+    popisek: Byt č. 2 — foto 1
+    skupina: aktualni
+  - soubor: static/uploads/byty/byt-2-foto-02.webp
+    popisek: Byt č. 2 — foto 2
+    skupina: aktualni
+  - soubor: static/uploads/byty/byt-2-foto-03.webp
+    popisek: Byt č. 2 — foto 3
+    skupina: aktualni
 pudorys: static/uploads/pudorysy/pudorys-byt-2.webp
+poradi: 2
 karta_pdf: static/uploads/kartyPDF/karta-byt-2.pdf
